@@ -1,0 +1,60 @@
+baseurl: "/"
+relativeurls: true
+languageCode: "pt-br"
+title: "Eduardo Jr"
+theme: "eerj-blog-theme"
+googleAnalytics: ""
+disqusShortname: "eerj-website"
+ignoreFiles: ["\\.Rmd$", "_files$", "_cache$"]
+enableEmoji: true
+footnotereturnlinkcontents: "↩"
+
+# permalinks:
+#   cn: "/cn/:year/:month/:slug/"
+#   en: "/en/:year/:month/:slug/"
+permalinks:
+    post: "/:year/:month/:day/:slug/"
+
+menu:
+  main:
+    - name: "Blog"
+      url: "/post/"
+      weight: 1
+    - name: "Portfólio"
+      url: "/portfolio/"
+      weight: 2
+    - name: "Projetos"
+      url: "/projetos/"
+      weight: 2
+    - name: "Sobre mim"
+      url: "/about/"
+      weight: 3
+
+params:
+  description: "Personal website"
+  disqusURL: ""
+  fullURL: ""
+
+  author: "Eduardo Jr"
+
+  # options for highlight.js (version, additional languages, and theme)
+  highlightjsVersion: "9.9.0"
+  highlightjsLang: ["r", "yaml", "tex"]
+  highlightjsTheme: "github"
+
+  # Modify layout/partials/footer.html for add and exclude items
+  social:
+    email: "edujrrib@gmail.com"
+    github: jreduardo
+    linkedin: in/jreduardo
+    facebook: eduardo.junior.1234
+    stackoverflow: 6563583/eduardo-junior
+
+  logo:
+    url: "logo.png"
+    width: 100
+    height: 100
+    alt: "Jr"
+
+  lang:
+    edit: "Suggest an edit of this page"

@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'Gentium-Basic';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Gentium-Basic'), local('Gentium-Basic-Regular'),
+       url('../fonts/Gentium-Basic-regular.woff2') format('woff2'),
+       url('../fonts/Gentium-Basic-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Merriweather';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Merriweather'), local('Merriweather-Regular'),
+       url('../fonts/merriweather-v13-latin-regular.woff2') format('woff2'),
+       url('../fonts/merriweather-v13-latin-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Lato Regular'), local('Lato-Regular'),
+       url('../fonts/lato-v11-latin-regular.woff2') format('woff2'),
+       url('../fonts/lato-v11-latin-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Ubuntu Mono'), local('Ubuntu-Mono-regular'),
+       url('../fonts/Ubuntu-Mono-regular.woff2') format('woff2'),
+       url('../fonts/Ubuntu-Mono-regular.woff') format('woff');
+}
+/* @font-face { */
+/*   font-family: 'Bree-Serif'; */
+/*   font-style: normal; */
+/*   font-weight: 400; */
+/*   src: local('Bree-Serif'), local('Bree-Serif-Regular'), */
+/*        url('../fonts/Bree-Serif-regular.woff2') format('woff2'), */
+/*        url('../fonts/Bree-Serif-regular.woff') format('woff'); */
+/* } */
+/* @font-face { */
+/*   font-family: 'Kreon'; */
+/*   font-style: normal; */
+/*   font-weight: 400; */
+/*   src: local('Kreon'), local('Kreon-Regular'), */
+/*        url('../fonts/Kreon-regular.woff2') format('woff2'), */
+/*        url('../fonts/Kreon-regular.woff') format('woff'); */
+/* } */
+
+/*------------------------------------------- */
+/* Define main fonts */
+body {
+  font-family: 'Gentium', serif;
+  text-align: justify;
+  font-size: 5px;
+}
+h1, h2, h3, h4, h5, h6, .nav, .article-duration, .archive-item-link, .footer {
+  font-family: 'Merriweather', sans-serif;
+}
+
+
+/*------------------------------------------- */
+/* Font to ambiente de código */
+code, kbd, pre, samp {
+    font-family: "Ubuntu mono", Menlo, Monaco, Consolas;
+    font-size: 18px;
+}
+
+/*------------------------------------------- */
