@@ -1,0 +1,10 @@
+Package: EERJ
+Title: Eduardo Jr's Personal Website and Blog
+Version: 0.0.1
+Imports:
+  rmarkdown,
+  knitr,
+  lattice,
+  latticeExtra,
+  blogdown
+Remotes: rstudio/blogdown
