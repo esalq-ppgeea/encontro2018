@@ -2,8 +2,7 @@
 output: rmarkdown::md_document
 ---
 
-
-## Datas Importantes ##
+# Datas Importantes #
 
 
 ```{r, echo=FALSE, results="asis"}
