@@ -1,9 +1,10 @@
 /*------------------------------------------- */
 /* Define colors */
 :root{
-    --dark: #0D2444;
-    --medi: #5C779C;
-    --ligh: #F5F5F5;
+    --dark: #1E392A;
+    --dark2: #12301F;
+    --medi: #12301F;
+    --ligh: #527561;
 }
 /*------------------------------------------- */
 
@@ -116,7 +117,7 @@ code .MathJax {
 
 .site-header {
   padding: 20px 0;
-  background: #fff;
+  background: var(--dark);
   border-bottom: 0px solid var(--medi);
   box-shadow: 0px 1px 15px 0px var(--medi);
   position: fixed;
@@ -138,7 +139,7 @@ code .MathJax {
     background-position: center;
     padding: 40px;
     color: white;
-    text-shadow: 3px 3px 5px black;
+    text-shadow: 3px 3px 5px var(--dark2);
     margin-bottom: 30px
 }
 
@@ -203,13 +204,13 @@ code .MathJax {
 
 .nav-links a {
   text-decoration: none;
-  color: var(--medi);
-  font-size: 90%;
+  color: #fff;
+  font-size: 1em;
   font-family: initial;
 }
 
 .nav-links a:hover {
-  color: var(--dark);
+    color: var(--ligh);
 }
 
 .content {
