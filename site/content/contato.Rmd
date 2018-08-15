@@ -1,3 +1,7 @@
+---
+output: rmarkdown::md_document
+---
+
 ## Eduardo Elias Ribeiro Junior ##
 
 > <center>[edujrrib@gmail.com](mailto:edujrrib@gmail.com) /
