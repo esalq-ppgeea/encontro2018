@@ -4,6 +4,7 @@ Version: 0.0.1
 Imports:
   rmarkdown,
   knitr,
+  kableExtra,
   lattice,
   latticeExtra,
   blogdown
