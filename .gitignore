@@ -4,6 +4,7 @@
 .Ruserdata
 **/public/*
 **/content/*.html
+**/rmarkdown-libs/*
 
 # Ignore tex output files
 *.ilg
