@@ -1,0 +1,20 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+.site-header {
+    z-index: 2;
+}
+
+ol, ul {
+	list-style: none;
+}
+
+.event-name {
+    font-style: inherit;
+}
+
+body {
+    text-align: left;
+}
