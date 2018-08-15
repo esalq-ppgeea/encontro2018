@@ -1,0 +1,244 @@
+{{ partial "header.html" . }}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet"> -->
+  <link rel="stylesheet" href="../schedule/css/reset.css"> <!-- CSS reset -->
+  <link rel="stylesheet" href="../schedule/css/style.css"> <!-- Resource style -->
+</head>
+
+<main class="content" role="main">
+
+  <article class="article">
+    {{ if eq .Section "post" }}
+    <span class="article-duration">{{ .ReadingTime }} min read</span>
+    {{ end }}
+
+    <h1 class="article-title">{{ .Title }}</h1>
+
+    {{ if eq .Section "post" }}
+    <span class="article-date">{{ .Date.Format "2006/01/02" }}</span>
+    {{ end }}
+
+    <div class="article-content">
+      {{ .Content }}
+    </div>
+
+  </article>
+
+</main>
+
+<div class="cd-schedule loading">
+  <div class="timeline">
+    <ul>
+      <li><span>08:00</span></li>
+      <li><span>08:30</span></li>
+      <li><span>09:00</span></li>
+      <li><span>09:30</span></li>
+      <li><span>10:00</span></li>
+      <li><span>10:30</span></li>
+      <li><span>11:00</span></li>
+      <li><span>11:30</span></li>
+      <li><span>12:00</span></li>
+      <li><span>12:30</span></li>
+      <li><span>13:00</span></li>
+      <li><span>13:30</span></li>
+      <li><span>14:00</span></li>
+      <li><span>14:30</span></li>
+      <li><span>15:00</span></li>
+      <li><span>15:30</span></li>
+      <li><span>16:00</span></li>
+      <li><span>16:30</span></li>
+      <li><span>17:00</span></li>
+      <li><span>17:30</span></li>
+      <li><span>18:00</span></li>
+    </ul>
+  </div> <!-- .timeline -->
+
+  <div class="events">
+    <ul>
+      <li class="events-group">
+	<div class="top-info"><span><b>Quarta-feira (21/11)</b></span></div>
+
+	<ul>
+	  <li class="single-event" data-start="08:00" data-end="8:30" data-content="recepcao" data-event="event-1">
+	    <a href="#0">
+	      <em class="event-name">Recepção</em>
+	    </a>
+	  </li>
+
+	  <li class="single-event" data-start="8:30" data-end="9:30" data-content="palestra-abertura" data-event="event-2">
+	    <a href="#0">
+	      <em class="event-name">Palestra de Abertura</em>
+	    </a>
+	  </li>
+
+	  <li class="single-event" data-start="9:30" data-end="10:30"  data-content="minicurso" data-event="event-5">
+	    <a href="#0">
+	      <em class="event-name">Minicurso</em>
+	    </a>
+	  </li>
+
+	  <li class="single-event" data-start="10:30" data-end="11:00" data-content="coffe-break" data-event="event-1">
+	    <a href="#0">
+	      <em class="event-name">Coffee break</em>
+	    </a>
+	  </li>
+
+          <li class="single-event" data-start="11:00" data-end="12:00" data-content="minicurso" data-event="event-5">
+	    <a href="#0">
+	      <em class="event-name">Minicurso</em>
+	    </a>
+	  </li>
+
+	  <li class="single-event" data-start="13:30" data-end="15:30" data-content="comunicacoes-orais-1" data-event="event-4">
+	    <a href="#0">
+	      <em class="event-name">Comunicações orais I</em>
+	    </a>
+	  </li>
+
+	  <li class="single-event" data-start="15:30" data-end="16:15" data-content="coffe-break" data-event="event-1">
+	    <a href="#0">
+	      <em class="event-name">Coffee break</em>
+	    </a>
+	  </li>
+
+          <li class="single-event" data-start="16:15" data-end="17:15"  data-content="comunicacoes-orais-1" data-event="event-4">
+	    <a href="#0">
+	      <em class="event-name">Comunicações orais I</em>
+	    </a>
+	  </li>
+
+          <li class="single-event" data-start="17:15" data-end="18:15" data-content="conferencia-1" data-event="event-3">
+	    <a href="#0">
+	      <em class="event-name">Conferência 1</em>
+	    </a>
+	  </li>
+
+        </ul>
+      </li>
+
+      <li class="events-group">
+	<div class="top-info"><span><b>Quinta-feira (22/11)</b></span></div>
+        <ul>
+	  <li class="single-event" data-start="8:30" data-end="10:30"  data-content="minicurso" data-event="event-5">
+	    <a href="#0">
+	      <em class="event-name">Minicurso</em>
+	    </a>
+	  </li>
+
+	  <li class="single-event" data-start="10:30" data-end="11:00" data-content="coffe-break" data-event="event-1">
+	    <a href="#0">
+	      <em class="event-name">Coffee break</em>
+	    </a>
+	  </li>
+
+	  <li class="single-event" data-start="11:00" data-end="12:00" data-content="comunicacoes-orais-2" data-event="event-4">
+	    <a href="#0">
+	      <em class="event-name">Comunicações orais II</em>
+	    </a>
+	  </li>
+
+          <li class="single-event" data-start="13:30" data-end="15:30"  data-content="comunicacoes-orais-2" data-event="event-4">
+	    <a href="#0">
+	      <em class="event-name">Comunicações orais II</em>
+	    </a>
+	  </li>
+
+	  <li class="single-event" data-start="15:30" data-end="16:15" data-content="coffe-break" data-event="event-1">
+	    <a href="#0">
+	      <em class="event-name">Coffee break</em>
+	    </a>
+	  </li>
+
+          <li class="single-event" data-start="16:15" data-end="17:15" data-content="conferencia-2" data-event="event-3">
+	    <a href="#0">
+	      <em class="event-name">Conferência 2</em>
+	    </a>
+	  </li>
+
+        </ul>
+      </li>
+
+      <li class="events-group">
+	<div class="top-info"><span><b>Sexta-feira (23/11)</b></span></div>
+
+        <ul>
+	  <li class="single-event" data-start="8:30" data-end="10:30"  data-content="mesa-redonda" data-event="event-6">
+	    <a href="#0">
+	      <em class="event-name">Mesa redonda</em>
+	    </a>
+	  </li>
+
+	  <li class="single-event" data-start="10:30" data-end="11:00" data-content="coffe-break" data-event="event-1">
+	    <a href="#0">
+	      <em class="event-name">Coffee break</em>
+	    </a>
+	  </li>
+
+	  <li class="single-event" data-start="11:00" data-end="12:00" data-content="comunicacoes-orais-3" data-event="event-4">
+	    <a href="#0">
+	      <em class="event-name">Comunicações orais III</em>
+	    </a>
+	  </li>
+
+          <li class="single-event" data-start="13:30" data-end="15:30"  data-content="comunicacoes-orais-3" data-event="event-4">
+	    <a href="#0">
+	      <em class="event-name">Comunicações orais III</em>
+	    </a>
+	  </li>
+
+	  <li class="single-event" data-start="15:30" data-end="16:15" data-content="coffe-break" data-event="event-1">
+	    <a href="#0">
+	      <em class="event-name">Coffee break</em>
+	    </a>
+	  </li>
+
+          <li class="single-event" data-start="16:15" data-end="16:45" data-content="premiacoes" data-event="event-2">
+	    <a href="#0">
+	      <em class="event-name">Premiações</em>
+	    </a>
+	  </li>
+
+          <li class="single-event" data-start="16:45" data-end="17:45" data-content="palestra-fechamento" data-event="event-2">
+	    <a href="#0">
+	      <em class="event-name">Palestra de fechamento</em>
+	    </a>
+	  </li>
+
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <div class="event-modal">
+    <header class="header">
+      <div class="content">
+	<span class="event-date"></span>
+	<h3 class="event-name"></h3>
+      </div>
+
+      <div class="header-bg"></div>
+    </header>
+
+    <div class="body">
+      <div class="event-info"></div>
+      <div class="body-bg"></div>
+    </div>
+
+    <a href="#0" class="close">Close</a>
+  </div>
+
+  <div class="cover-layer"></div>
+</div> <!-- .cd-schedule -->
+<script src="../schedule/js/modernizr.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+<script>
+  if( !window.jQuery ) document.write('<script src="js/jquery-3.0.0.min.js"><\/script>');
+  </script>
+  <script src="../schedule/js/main.js"></script> <!-- Resource jQuery -->
+
+
+  {{ partial "footer.html" . }}
