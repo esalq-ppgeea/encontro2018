@@ -1,0 +1,28 @@
+body {
+  font-family: 'Gentium', serif;
+  text-align: justify;
+}
+
+code, kbd, pre, samp {
+    font-family: "Ubuntu mono", Menlo, Monaco, Consolas;
+    font-size: 14px;
+    color: green;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #1E392A;
+    font-family: 'Merriweather', sans-serif;
+    font-weight: bold;
+}
+
+.chart-title {
+    font-weight: bold;
+    background-color: #527561;
+    color: #fff;
+    padding: 1px 10px 1px;
+    margin: 5px 0px 10px;
+}
+
+.shiny-input-container:not(.shiny-input-container-inline) {
+    width: 100%;
+}
