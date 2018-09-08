@@ -11,8 +11,18 @@ body {
     padding: 8px;
 }
 
+.wait-message {
+    font-size: 12px;
+    text-align: center;
+    width: 100%;
+}
+
 .sucess {
     color: green;
+}
+
+.warn {
+    color: blue;
 }
 
 h1, h2, h3, h4, h5, h6 {

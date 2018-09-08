@@ -6,6 +6,8 @@
 **/content/*.html
 **/rmarkdown-libs/*
 
+**/.httr-oauth
+
 # Ignore tex output files
 *.ilg
 *.ind

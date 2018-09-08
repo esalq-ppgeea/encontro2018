@@ -2,6 +2,10 @@
 # server.R
 
 library(shiny)
+library(googledrive)
+
+#-----------------------------------------------------------------------
+# Useful functions
 
 verifica_nwords <- function(txt, nwords) {
     words <- strsplit(txt, " ")[[1]]
@@ -54,7 +58,7 @@ organiza_cpf <- function(cpf) {
 verifica_dup <- function(cpf, conjunto) {
     ind <- cpf %in% conjunto
     if (ind)
-        return("Usuário já inscrito. O indivíduo com esse CPF já se inscreveu no evento.")
+        return("<span class='warn'>Usuário já inscrito. O indivíduo com esse CPF já se inscreveu no evento.</span>")
     return(1L)
 }
 
@@ -191,11 +195,22 @@ shinyServer(
         # Grava as informações da inscrição
         dfInscricao <- eventReactive(input$inscricaoButton, {
             # Read the current data
-            dados <- read.table(
+            download <- try(drive_download(
+                file = "~/encontro2018/inscricoes.csv",
+                path = "./data/inscricoes.csv",
+                overwrite = TRUE,
+                verbose = FALSE))
+            if (any(class(download) %in% "try-error")) {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
+            dados <- try(read.table(
                 file = "./data/inscricoes.csv",
                 comment.char = "",
                 header = TRUE,
-                sep = "\t")
+                sep = "\t"))
+            if (class(dados) == "try-error") {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
             # Verify fields
             vcam <- verifica_campos(input$name,
                                     input$institute,
@@ -216,11 +231,23 @@ shinyServer(
             if (is.character(vdup)) return(vdup)
             # Append infos to data and re-write the file
             dados <- rbind(dados, infos)
-            write.table(dados,
-                        file = "./data/inscricoes.csv",
-                        quote = TRUE,
-                        row.names = FALSE,
-                        sep = "\t")
+            writing <- try(write.table(
+                dados,
+                file = "./data/inscricoes.csv",
+                quote = TRUE,
+                row.names = FALSE,
+                sep = "\t"))
+            if (class(writing) == "try-error") {
+                return("Não foi possível gravar os dados. Confira seus dados, se corretos contate Eduardo Jr <jreduardo@usp.br>.")
+            }
+            # Update the remote file
+            update <- try(drive_update(
+                file = "~/encontro2018/inscricoes.csv",
+                media = "./data/inscricoes.csv",
+                verbose = FALSE))
+            if (any(class(update) %in% "try-error")) {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
             # Success message
             nam <- strsplit(input$name, " ")[[1L]]
             msg <- sprintf("Parabéns %s, inscrição realizada!",
@@ -233,16 +260,30 @@ shinyServer(
         # Grava as informações da submissão
         dfSubmissao <- eventReactive(input$submissaoButton, {
             # Read the current data
-            dados <- read.table(
+            download <- try(drive_download(
+                file = "~/encontro2018/submissoes.csv",
+                path = "./data/submissoes.csv",
+                overwrite = TRUE,
+                verbose = FALSE))
+            if (any(class(download) %in% "try-error")) {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
+            dados <- try(read.table(
                 file = "./data/submissoes.csv",
                 comment.char = "",
                 header = TRUE,
-                sep = "\t")
-            inscr <- read.table(
+                sep = "\t"))
+            if (class(dados) == "try-error") {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
+            inscr <- try(read.table(
                 file = "./data/inscricoes.csv",
                 comment.char = "",
                 header = TRUE,
-                sep = "\t")
+                sep = "\t"))
+            if (class(inscr) == "try-error") {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
             # Verify fields
             vcam <- verifica_campos(input$speaker,
                                     input$cpf2,
@@ -280,11 +321,23 @@ shinyServer(
             }
             # Append infos to data and re-write the file
             dados <- rbind(dados, infos)
-            write.table(dados,
-                        file = "./data/submissoes.csv",
-                        quote = TRUE,
-                        row.names = FALSE,
-                        sep = "\t")
+            writing <- try(write.table(
+                dados,
+                file = "./data/submissoes.csv",
+                quote = TRUE,
+                row.names = FALSE,
+                sep = "\t"))
+            if (class(writing) == "try-error") {
+                return("Não foi possível gravar os dados. Confira seus dados, se corretos contate Eduardo Jr <jreduardo@usp.br>.")
+            }
+            # Update the remote file
+            update <- try(drive_update(
+                file = "~/encontro2018/submissoes.csv",
+                media = "./data/submissoes.csv",
+                verbose = FALSE))
+            if (any(class(update) %in% "try-error")) {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
             # Success message
             nam <- strsplit(input$speaker, " ")[[1L]]
             msg <- sprintf("Parabéns %s, sua proposta de comunicação oral foi submetida!",
