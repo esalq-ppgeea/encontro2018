@@ -14,13 +14,14 @@ shinyUI(fluidPage(
                   type = "text/css",
                   href = "style.css")
               ),
+    # verbatimTextOutput("test"),
     #-------------------------------------------
     # Inscricoes
     # div(class = "chart-title", h4(strong("Inscrição no evento"))),
     h3("Inscrição no evento"),
     uiOutput("UIinscricao"),
     br(),
-    verbatimTextOutput("outputInscricao"),
+    htmlOutput("outputInscricao", class = "record-message"),
     hr(style = "border: 2px solid #eee"),
     #-------------------------------------------
     # Inscricoes
@@ -28,6 +29,6 @@ shinyUI(fluidPage(
     h3("Submissão de trabalho"),
     uiOutput("UIsubmissao"),
     br(),
-    verbatimTextOutput("outputSubmissao"),
+    htmlOutput("outputSubmissao", class = "record-message"),
     hr(style = "border: 2px solid #eee")
 ))

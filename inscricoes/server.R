@@ -12,7 +12,7 @@ verifica_campos <- function(...) {
     campos <- list(...)
     index <- vapply(campos, function(x) trimws(x) == "", TRUE)
     if (any(index)) {
-        stop("Todos os campos são obrigatórios. Por favor, preenchê-los")
+        return("Todos os campos são obrigatórios. Por favor, preencha os campos em branco.")
     }
     return(1L)
 }
@@ -22,7 +22,7 @@ verifica_cpf <- function(cpf) {
     out <- strsplit(out, "")[[1L]]
     out <- as.integer(out)
     if (length(out) != 11) {
-        stop("CPF inválido")
+        return("CPF inválido. O CPF inserido não têm 11 digítos.")
     }
     #-------------------------------------------
     test <- rev(rev(out)[-(1:2)])
@@ -34,7 +34,7 @@ verifica_cpf <- function(cpf) {
     d2 <- ifelse(resto_d2 %in% 0:1, 0, 11 - resto_d2)
     #-------------------------------------------
     if (!all(c(d1, d2) == digs)) {
-        stop("CPF inválido")
+        return("CPF inválido. Verifique seu CPF.")
     }
     return(1L)
 }
@@ -42,7 +42,7 @@ verifica_cpf <- function(cpf) {
 organiza_cpf <- function(cpf) {
     out <- gsub("\\D", "", cpf)
     if (nchar(out) != 11) {
-        stop("CPF inválido")
+        return("CPF inválido. O CPF inserido não têm 11 digítos.")
     }
     pos <- seq(1, nchar(out), 3)
     out <- substring(out, pos, pos + 2)
@@ -53,18 +53,26 @@ organiza_cpf <- function(cpf) {
 
 verifica_dup <- function(cpf, conjunto) {
     ind <- cpf %in% conjunto
-    if (ind) stop("Usuário já inscrito")
+    if (ind)
+        return("Usuário já inscrito. O indivíduo com esse CPF já se inscreveu no evento.")
     return(1L)
 }
 
 verifica_rec <- function(cpf, conjunto) {
     ind <- !(cpf %in% conjunto)
-    if (ind) stop("Usuário ainda não inscrito!")
+    if (ind)
+        return("Usuário não inscrito. Por favor, realize sua inscrição antes de submeter seu trabalho.")
     return(1L)
+}
+
+higienize <- function(txt) {
+    out <- gsub("\\t", "@t", txt)
+    out <- gsub("\"", "\\'", txt)
 }
 
 shinyServer(
     function(input, output, session) {
+
         #-------------------------------------------
         # Inscricoes (input infos)
         output$UIinscricao <- renderUI({
@@ -98,10 +106,10 @@ shinyServer(
                                width = "100%")
                            )),
                 HTML(text = '<div class="shiny-input-container"
-                          style="margin-bottom: -10px">
-                       <label class="control-label" for="category">
-                       Participará do minicurso?</label>
-                     </div>'),
+                               style="margin-bottom: -10px">
+                             <label class="control-label" for="category">
+                               Participará do minicurso?</label>
+                             </div>'),
                 checkboxInput(
                     inputId = "course",
                     label = "Modelos Não Lineares - Walmes Zeviani (LEG/UFPR)",
@@ -117,6 +125,7 @@ shinyServer(
                            ))
             )
         })
+
         #-------------------------------------------
         # Submissao (input infos)
         output$UIsubmissao <- renderUI({
@@ -177,6 +186,7 @@ shinyServer(
                            ))
             )
         })
+
         #-------------------------------------------
         # Grava as informações da inscrição
         dfInscricao <- eventReactive(input$inscricaoButton, {
@@ -187,9 +197,10 @@ shinyServer(
                 header = TRUE,
                 sep = "\t")
             # Verify fields
-            verifica_campos(input$name,
-                            input$institute,
-                            input$cpf)
+            vcam <- verifica_campos(input$name,
+                                    input$institute,
+                                    input$cpf)
+            if (is.character(vcam)) return(vcam)
             # Organize infos
             infos <- data.frame(
                 "id"        = paste0("#", nrow(dados) + 1L),
@@ -199,13 +210,15 @@ shinyServer(
                 "category"  = trimws(input$category),
                 "course"    = trimws(input$course))
             # Verify infos
-            verifica_cpf(infos$cpf)
-            verifica_dup(infos$cpf, dados$cpf)
+            vcpf <- verifica_cpf(infos$cpf)
+            if (is.character(vcpf)) return(vcpf)
+            vdup <- verifica_dup(infos$cpf, dados$cpf)
+            if (is.character(vdup)) return(vdup)
             # Append infos to data and re-write the file
             dados <- rbind(dados, infos)
             write.table(dados,
                         file = "./data/inscricoes.csv",
-                        quote = FALSE,
+                        quote = TRUE,
                         row.names = FALSE,
                         sep = "\t")
             # Success message
@@ -213,8 +226,9 @@ shinyServer(
             msg <- sprintf("Parabéns %s, inscrição realizada!",
                            paste(nam[c(1, length(nam))],
                                  collapse = " "))
-            return(cat(msg, sep = "\n"))
+            return(msg)
         })
+
         #-------------------------------------------
         # Grava as informações da submissão
         dfSubmissao <- eventReactive(input$submissaoButton, {
@@ -230,66 +244,80 @@ shinyServer(
                 header = TRUE,
                 sep = "\t")
             # Verify fields
-            verifica_campos(input$speaker,
-                            input$cpf2,
-                            input$authors,
-                            input$title_pt,
-                            input$title_en,
-                            input$abstract_pt,
-                            input$abstract_en)
+            vcam <- verifica_campos(input$speaker,
+                                    input$cpf2,
+                                    input$authors,
+                                    input$title_pt,
+                                    input$title_en,
+                                    input$abstract_pt,
+                                    input$abstract_en)
+            if (is.character(vcam)) return(vcam)
             # Organize infos
             infos <- data.frame(
                 "speaker"     = trimws(input$speaker),
                 "cpf"         = organiza_cpf(trimws(input$cpf2)),
                 "authors"     = trimws(input$authors),
-                "title_pt"    = gsub("\\t", "t", trimws(input$title_pt)),
-                "title_en"    = gsub("\\t", "t", trimws(input$title_en)),
-                "abstract_pt" = gsub("\\t", "t", trimws(input$abstract_pt)),
-                "abstract_en" = gsub("\\t", "t", trimws(input$abstract_en)))
+                "title_pt"    = higienize(trimws(input$title_pt)),
+                "title_en"    = higienize(trimws(input$title_en)),
+                "abstract_pt" = higienize(trimws(input$abstract_pt)),
+                "abstract_en" = higienize(trimws(input$abstract_en)))
             # Verify infos
-            verifica_cpf(infos$cpf)
-            verifica_rec(infos$cpf, inscr$cpf)
+            vcpf <- verifica_cpf(infos$cpf)
+            if (is.character(vcpf)) return(vcpf)
+            vrec <- verifica_rec(infos$cpf, inscr$cpf)
+            if (is.character(vrec)) return(vrec)
             ind_title <- c(
                 verifica_nwords(trimws(input$title_pt), 15),
                 verifica_nwords(trimws(input$title_en), 15))
             if (!all(ind_title)) {
-                stop("O título do trabalho (em português e inglês) não deve ultrapassar 15 palavras.")
+                return("O título do trabalho (em português e inglês) não deve ultrapassar 15 palavras.")
             }
             ind_abstract <- c(
                 verifica_nwords(trimws(input$abstract_pt), 300),
                 verifica_nwords(trimws(input$abstract_en), 300))
             if (!all(ind_title)) {
-                stop("O título do trabalho (em português e inglês) não deve ultrapassar 15 palavras.")
+                return("O título do trabalho (em português e inglês) não deve ultrapassar 15 palavras.")
             }
-
             # Append infos to data and re-write the file
             dados <- rbind(dados, infos)
             write.table(dados,
                         file = "./data/submissoes.csv",
-                        quote = FALSE,
+                        quote = TRUE,
                         row.names = FALSE,
                         sep = "\t")
             # Success message
-            nam <- strsplit(input$name, " ")[[1L]]
+            nam <- strsplit(input$speaker, " ")[[1L]]
             msg <- sprintf("Parabéns %s, sua proposta de comunicação oral foi submetida!",
                            paste(nam[c(1, length(nam))],
                                  collapse = " "))
-            return(cat(msg, sep = "\n"))
+            return(msg)
         })
+
         #-------------------------------------------
         # Imprime mensagem após submeter inscrição
         output$outputInscricao <- renderPrint({
-            dfInscricao()
+            imessage <- dfInscricao()
+            if (grepl("Parabéns", imessage)) {
+                cat(sprintf("<span class='sucess'> %s </span>",
+                            imessage), sep = "\n")
+            } else {
+                cat(imessage, sep = "\n")
+            }
         })
         #-------------------------------------------
         # Imprime mensagem após submeter trabalho
         output$outputSubmissao <- renderPrint({
-            dfSubmissao()
+            imessage <- dfSubmissao()
+            if (grepl("Parabéns", imessage)) {
+                cat(sprintf("<span class='sucess'> %s </span>",
+                            imessage), sep = "\n")
+            } else {
+                cat(imessage, sep = "\n")
+            }
         })
         #-------------------------------------------
         # Teste
         output$test <- renderPrint({
-            # verifica_campos(input$name, input$institute, input$cpf)
         })
     }
 )
