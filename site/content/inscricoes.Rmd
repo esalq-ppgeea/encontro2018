@@ -4,4 +4,12 @@ output: rmarkdown::md_documento
 
 # Inscrições #
 
-Formulário de inscrições e orientações em breve.
+As inscrições e submissões de artigos para o evento são realizadas por
+meio dos formulários disponibilizados abaixo. Caso tenha problemas em
+preenchê-los nessa página, acesse [VIIIEncontro-Formulário](https://eduardojr.shinyapps.io/encontro2018/).
+
+<!--html_preserve-->
+<div class="resp-container">
+    <iframe class="resp-iframe" src="https://eduardojr.shinyapps.io/encontro2018/" allowfullscreen></iframe>
+</div>
+<!--/html_preserve-->

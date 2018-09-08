@@ -55,6 +55,7 @@ shinyUI(fluidPage(
     br(),
     htmlOutput("outputInscricao", class = "record-message"),
     hr(style = "border: 2px solid #eee"),
+
     #-------------------------------------------
     # Inscricoes
     # div(class = "chart-title", h4(strong("Submissão de trabalho"))),

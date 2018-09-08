@@ -95,9 +95,9 @@ shinyServer(
                        ),
                 column(width = 4,
                        HTML(text = '<div class="shiny-input-container"
-                               style="margin-bottom: 0px">
+                               style="margin-bottom: 4px">
                              <label class="control-label" for="category">
-                               Marque se participará do minicurso?</label>
+                               </label>
                              </div>'),
                            actionButton(inputId = "consultaButton",
                                         label = strong("Consultar"),
@@ -216,28 +216,32 @@ shinyServer(
                     label = "Título (português)",
                     value = "",
                     height = "34px",
-                    placeholder = "Até 15 palavras"
+                    placeholder = "Até 15 palavras",
+                    resize = "vertical"
                 ),
                 textAreaInput(
                     inputId = "abstract_pt",
                     label = "Resumo (português)",
                     value = "",
-                    height = "136px",
-                    placeholder = "De 80 a 300 palavras"
+                    height = "204px",
+                    placeholder = "De 80 a 300 palavras",
+                    resize = "vertical"
                 ),
                 textAreaInput(
                     inputId = "title_en",
                     label = "Title (English)",
                     value = "",
                     height = "34px",
-                    placeholder = "Maximum 15 words"
+                    placeholder = "Maximum 15 words",
+                    resize = "vertical"
                 ),
                 textAreaInput(
                     inputId = "abstract_en",
                     label = "Abstract (English)",
                     value = "",
-                    height = "136px",
-                    placeholder = "Limited to 80 to 300 words"
+                    height = "204px",
+                    placeholder = "Limited to 80 to 300 words",
+                    resize = "vertical"
                 ),
                 fluidRow(
                     column(width = 6, offset = 3,
