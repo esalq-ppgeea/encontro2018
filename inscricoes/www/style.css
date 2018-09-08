@@ -12,6 +12,10 @@ a {
     transition: background 150ms ease;
 }
 
+.form-control {
+    font-size: 16px
+}
+
 .record-message {
     font-family: "Ubuntu mono", Menlo, Monaco, Consolas;
     font-size: 14px;
@@ -24,6 +28,15 @@ a {
     font-size: 12px;
     text-align: center;
     width: 100%;
+}
+
+.search-message {
+    font-family: "Ubuntu mono", Menlo, Monaco, Consolas;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    background-color: #efefef;
+    padding: 8px;
 }
 
 .sucess {

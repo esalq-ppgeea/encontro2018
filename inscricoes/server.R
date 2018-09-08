@@ -82,6 +82,42 @@ shinyServer(
     function(input, output, session) {
 
         #-------------------------------------------
+        # Consulta (input infos)
+        output$UIconsulta <- renderUI({
+            fluidRow(
+                column(width = 4,
+                       textInput(
+                           inputId = "cpf3",
+                           label = "CPF",
+                           value = "",
+                           width = "100%",
+                           placeholder = "123.456.789-09")
+                       ),
+                column(width = 4,
+                       HTML(text = '<div class="shiny-input-container"
+                               style="margin-bottom: 0px">
+                             <label class="control-label" for="category">
+                               Marque se participará do minicurso?</label>
+                             </div>'),
+                           actionButton(inputId = "consultaButton",
+                                        label = strong("Consultar"),
+                                        class = "btn btn-primary",
+                                        icon = icon("search"),
+                                        width = "100%")
+                           ),
+                column(width = 4,
+                       HTML(text = '<div class="shiny-input-container"
+                               style="margin-bottom: 0px">
+                             <label class="control-label" for="category">
+                               Situação do usuário:</label>
+                             </div>'),
+                       htmlOutput("outputConsulta",
+                                  class = "search-message")
+                       )
+            )
+        })
+
+        #-------------------------------------------
         # Inscricoes (input infos)
         output$UIinscricao <- renderUI({
             tagList(
@@ -91,6 +127,12 @@ shinyServer(
                     value = "",
                     width = "100%",
                     placeholder = "Fulano Souza"),
+                textInput(
+                    inputId = "email",
+                    label = "E-mail",
+                    value = "",
+                    width = "100%",
+                    placeholder = "fsouza@example.com"),
                 textInput(
                     inputId = "institute",
                     label = "Instituição/Empresa",
@@ -209,6 +251,69 @@ shinyServer(
         })
 
         #-------------------------------------------
+        # Consulta (search database)
+        dfConsulta <- eventReactive(input$consultaButton, {
+            # Read the current data
+            download <- try(drive_download(
+                file = "~/encontro2018/submissoes.csv",
+                path = "./data/submissoes.csv",
+                overwrite = TRUE,
+                verbose = FALSE))
+            if (any(class(download) %in% "try-error")) {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
+            submi <- try(read.table(
+                file = "./data/submissoes.csv",
+                stringsAsFactors = FALSE,
+                comment.char = "",
+                header = TRUE,
+                sep = "\t"))
+            if (class(submi) == "try-error") {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
+            download <- try(drive_download(
+                file = "~/encontro2018/inscricoes.csv",
+                path = "./data/inscricoes.csv",
+                overwrite = TRUE,
+                verbose = FALSE))
+            if (any(class(download) %in% "try-error")) {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
+            inscr <- try(read.table(
+                file = "./data/inscricoes.csv",
+                stringsAsFactors = FALSE,
+                comment.char = "",
+                header = TRUE,
+                sep = "\t"))
+            if (class(inscr) == "try-error") {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
+            cpf <- organiza_cpf(trimws(input$cpf3))
+            vcpf <- verifica_cpf(cpf)
+            if (is.character(vcpf)) {
+                return(vcpf)
+            }
+            if (cpf %in% inscr$cpf) {
+                nam <- inscr$name[inscr$cpf == cpf]
+                nam <- strsplit(nam, " ")[[1L]]
+                msg <- sprintf("%s inscrito,",
+                               paste(nam[c(1, length(nam))],
+                                     collapse = " "))
+                if (cpf %in% submi$cpf) {
+                    return(paste(msg, "com trabalho submetido."))
+                } else {
+                    return(paste(msg, "sem trabalho submetido."))
+                }
+            } else {
+                return("Usuário não inscrito.")
+            }
+        })
+        # Output consulta
+        output$outputConsulta <- renderPrint({
+            cat(dfConsulta(), sep = "\n")
+        })
+
+        #-------------------------------------------
         # Grava as informações da inscrição
         dfInscricao <- eventReactive(input$inscricaoButton, {
             # Read the current data
@@ -222,6 +327,7 @@ shinyServer(
             }
             dados <- try(read.table(
                 file = "./data/inscricoes.csv",
+                stringsAsFactors = FALSE,
                 comment.char = "",
                 header = TRUE,
                 sep = "\t"))
@@ -230,6 +336,7 @@ shinyServer(
             }
             # Verify fields
             vcam <- verifica_campos(input$name,
+                                    input$email,
                                     input$institute,
                                     input$cpf)
             if (is.character(vcam)) return(vcam)
@@ -237,6 +344,7 @@ shinyServer(
             infos <- data.frame(
                 "id"        = paste0("#", nrow(dados) + 1L),
                 "name"      = trimws(input$name),
+                "email"     = trimws(input$email),
                 "institute" = trimws(input$institute),
                 "cpf"       = organiza_cpf(trimws(input$cpf)),
                 "category"  = trimws(input$category),
@@ -248,6 +356,7 @@ shinyServer(
             if (is.character(vdup)) return(vdup)
             # Append infos to data and re-write the file
             dados <- rbind(dados, infos)
+            dados <- infos
             writing <- try(write.table(
                 dados,
                 file = "./data/inscricoes.csv",
@@ -287,14 +396,24 @@ shinyServer(
             }
             dados <- try(read.table(
                 file = "./data/submissoes.csv",
+                stringsAsFactors = FALSE,
                 comment.char = "",
                 header = TRUE,
                 sep = "\t"))
             if (class(dados) == "try-error") {
                 return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
             }
+            download <- try(drive_download(
+                file = "~/encontro2018/inscricoes.csv",
+                path = "./data/inscricoes.csv",
+                overwrite = TRUE,
+                verbose = FALSE))
+            if (any(class(download) %in% "try-error")) {
+                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+            }
             inscr <- try(read.table(
                 file = "./data/inscricoes.csv",
+                stringsAsFactors = FALSE,
                 comment.char = "",
                 header = TRUE,
                 sep = "\t"))
@@ -324,17 +443,25 @@ shinyServer(
             if (is.character(vcpf)) return(vcpf)
             vrec <- verifica_rec(infos$cpf, inscr$cpf)
             if (is.character(vrec)) return(vrec)
-            ind_title <- c(
-                verifica_nwords(trimws(input$title_pt), nmax = 15),
-                verifica_nwords(trimws(input$title_en), nmax = 15))
-            if (!all(ind_title)) {
-                return("O título do trabalho (em português e inglês) não deve ultrapassar 15 palavras.")
+            ind_title_pt <- verifica_nwords(infos$title_pt,
+                                            nmax = 15, nmin = 1)
+            if (!ind_title_pt) {
+                return("O título do trabalho (português) não deve ultrapassar 15 palavras.")
             }
-            ind_abstract <- c(
-                verifica_nwords(trimws(input$abstract_pt), 300, 80),
-                verifica_nwords(trimws(input$abstract_en), 300, 80))
-            if (!all(ind_abstract)) {
-                return("O título do trabalho (em português e inglês) não deve ultrapassar 15 palavras.")
+            ind_title_en <- verifica_nwords(infos$title_en,
+                                            nmax = 15, nmin = 1)
+            if (!ind_title_en) {
+                return("O título do trabalho (inglês) não deve ultrapassar 15 palavras.")
+            }
+            ind_abstract_pt <- verifica_nwords(infos$abstract_pt,
+                                               nmax = 300, nmin = 80)
+            if (!ind_abstract_pt) {
+                return("O resumo do trabalho (português) deve ser entre 80 e 300 palavras.")
+            }
+            ind_abstract_en <- verifica_nwords(infos$abstract_en,
+                                               nmax = 300, nmin = 80)
+            if (!ind_abstract_en) {
+                return("O resumo do trabalho (inglês) deve ser entre 80 e 300 palavras.")
             }
             # Append infos to data and re-write the file
             dados <- rbind(dados, infos)
@@ -374,6 +501,7 @@ shinyServer(
                 cat(imessage, sep = "\n")
             }
         })
+
         #-------------------------------------------
         # Imprime mensagem após submeter trabalho
         output$outputSubmissao <- renderPrint({

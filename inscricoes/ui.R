@@ -22,7 +22,11 @@ infoSubmissao <-
  trabalho (português e inglês). Ao submeter seu trabalho, permite-se a
  publicação do título e resumo nos anis do evento."
 
+infoConsulta <-
+"Verifique se já está inscrito no evento."
+
 shinyUI(fluidPage(
+    title = "Inscrições-VIIIEncontro",
     #-------------------------------------------
     # CSS Style
     tags$head(tags$link(
@@ -34,6 +38,12 @@ shinyUI(fluidPage(
                   href = "style.css")
               ),
     # verbatimTextOutput("test"),
+
+    #-------------------------------------------
+    # Consulta
+    div(HTML(infoConsulta), style = "margin-bottom: 10px"),
+    uiOutput("UIconsulta"),
+
     #-------------------------------------------
     # Inscricoes
     # div(class = "chart-title", h4(strong("Inscrição no evento"))),
