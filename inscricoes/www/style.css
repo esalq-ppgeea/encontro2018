@@ -1,6 +1,15 @@
 body {
-  font-family: 'Gentium', serif;
-  text-align: justify;
+    font-family: 'Gentium', serif;
+    text-align: justify;
+    font-size: 19px;
+    color: #555;
+}
+
+a {
+    text-decoration: none;
+    color: #12301F;
+    background: transparent;
+    transition: background 150ms ease;
 }
 
 .record-message {

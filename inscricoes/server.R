@@ -7,9 +7,18 @@ library(googledrive)
 #-----------------------------------------------------------------------
 # Useful functions
 
-verifica_nwords <- function(txt, nwords) {
+higienize <- function(txt) {
+    out <- gsub("\\t", "@t", txt)
+    out <- gsub("\\n", " ", out)
+    out <- gsub("\"", "\\'", out)
+    return(out)
+}
+
+verifica_nwords <- function(txt, nmax, nmin = 1L) {
+    txt <- higienize(txt)
     words <- strsplit(txt, " ")[[1]]
-    return(length(words) <= nwords)
+    index <- length(words) <= nmax & length(words) >= nmin
+    return(index)
 }
 
 verifica_campos <- function(...) {
@@ -69,11 +78,6 @@ verifica_rec <- function(cpf, conjunto) {
     return(1L)
 }
 
-higienize <- function(txt) {
-    out <- gsub("\\t", "@t", txt)
-    out <- gsub("\"", "\\'", txt)
-}
-
 shinyServer(
     function(input, output, session) {
 
@@ -85,19 +89,22 @@ shinyServer(
                     inputId = "name",
                     label = "Nome completo",
                     value = "",
-                    width = "100%"),
+                    width = "100%",
+                    placeholder = "Fulano Souza"),
                 textInput(
                     inputId = "institute",
                     label = "Instituição/Empresa",
                     value = "",
-                    width = "100%"),
+                    width = "100%",
+                    placeholder = "ESALQ/USP"),
                 fluidRow(
                     column(width = 6,
                            textInput(
                                inputId = "cpf",
                                label = "CPF",
                                value = "",
-                               width = "100%")
+                               width = "100%",
+                               placeholder = "123.456.789-09")
                            ),
                     column(width = 6,
                            selectInput(
@@ -112,7 +119,7 @@ shinyServer(
                 HTML(text = '<div class="shiny-input-container"
                                style="margin-bottom: -10px">
                              <label class="control-label" for="category">
-                               Participará do minicurso?</label>
+                               Marque se participará do minicurso?</label>
                              </div>'),
                 checkboxInput(
                     inputId = "course",
@@ -140,45 +147,55 @@ shinyServer(
                                inputId = "speaker",
                                label = "Apresentador",
                                value = "",
-                               width = "100%")
+                               width = "100%",
+                               placeholder = "Fulano Souza")
                            ),
                     column(width = 6,
                            textInput(
                                inputId = "cpf2",
                                label = "CPF",
                                value = "",
-                               width = "100%")
+                               width = "100%",
+                               placeholder = "123.456.789-09")
                            )
                 ),
                 textInput(
                     inputId = "authors",
                     label = "Autores",
                     value = "",
-                    width = "100%"
+                    width = "100%",
+                    placeholder = paste("Fulano Souza",
+                                        "Ciclano Braga",
+                                        "Beltrano Neves",
+                                        sep = "; ")
                 ),
                 textAreaInput(
                     inputId = "title_pt",
                     label = "Título (português)",
                     value = "",
-                    height = "34px"
+                    height = "34px",
+                    placeholder = "Até 15 palavras"
                 ),
                 textAreaInput(
                     inputId = "abstract_pt",
                     label = "Resumo (português)",
                     value = "",
-                    height = "136px"
+                    height = "136px",
+                    placeholder = "De 80 a 300 palavras"
                 ),
                 textAreaInput(
                     inputId = "title_en",
                     label = "Title (English)",
                     value = "",
-                    height = "34px"
+                    height = "34px",
+                    placeholder = "Maximum 15 words"
                 ),
                 textAreaInput(
                     inputId = "abstract_en",
                     label = "Abstract (English)",
                     value = "",
-                    height = "136px"
+                    height = "136px",
+                    placeholder = "Limited to 80 to 300 words"
                 ),
                 fluidRow(
                     column(width = 6, offset = 3,
@@ -308,15 +325,15 @@ shinyServer(
             vrec <- verifica_rec(infos$cpf, inscr$cpf)
             if (is.character(vrec)) return(vrec)
             ind_title <- c(
-                verifica_nwords(trimws(input$title_pt), 15),
-                verifica_nwords(trimws(input$title_en), 15))
+                verifica_nwords(trimws(input$title_pt), nmax = 15),
+                verifica_nwords(trimws(input$title_en), nmax = 15))
             if (!all(ind_title)) {
                 return("O título do trabalho (em português e inglês) não deve ultrapassar 15 palavras.")
             }
             ind_abstract <- c(
-                verifica_nwords(trimws(input$abstract_pt), 300),
-                verifica_nwords(trimws(input$abstract_en), 300))
-            if (!all(ind_title)) {
+                verifica_nwords(trimws(input$abstract_pt), 300, 80),
+                verifica_nwords(trimws(input$abstract_en), 300, 80))
+            if (!all(ind_abstract)) {
                 return("O título do trabalho (em português e inglês) não deve ultrapassar 15 palavras.")
             }
             # Append infos to data and re-write the file
@@ -371,6 +388,7 @@ shinyServer(
         #-------------------------------------------
         # Teste
         output$test <- renderPrint({
+            input$name
         })
     }
 )
