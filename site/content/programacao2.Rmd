@@ -1,0 +1,53 @@
+---
+output: rmarkdown::md_documento
+---
+
+<div style='text-align: center; margin-bottom: -10px'>
+  <p><strong>Minicurso</strong>:
+    21/11 (9h às 12h00) e 22/11 (8h30 às 10h30)<br/>
+  <strong style='font-size: 1.2em'>
+    Modelos de regressão não linear: teoria e aplicações
+  </strong><br/>
+  <a href="http://www.leg.ufpr.br/~walmes/"><strong>
+    Prof. Dr. Walmes Marques Zeviani
+  </strong></a> (LEG/UFPR)<br/>
+</div>
+
+_Em modelos regressão não-linear dados observados de uma variável
+resposta são descritos por uma função de uma ou mais variáveis
+explicativas que é não linear seus parâmetros. Assim como nos modelos
+lineares o objetivo é identificar e estabelecer a relação entre
+variáveis explicativas e resposta. Entretanto, enquanto os modelos
+lineares definem, em geral, relações empíricas, os modelos não-lineares
+são, em grande parte das vezes, motivados pelo conhecimento do tipo de
+relação entre as variáveis. Desta forma, as aplicações surgem nas
+diversas áreas onde relações físicas, biológicas, cinéticas, químicas,
+fisiológicas, dentre outras, são estabelecidas por funções não lineares
+que devem ter coeficientes (parâmetros) identificados (estimados) a
+partir de dados observados ou experimentais._
+
+---
+
+<div style='text-align: center; margin-bottom: -10px'>
+<p><strong>Conferência de encerramento</strong>:
+    23/11 (16h45 às 17h45)<br/>
+  <strong style='font-size: 1.2em'>
+    Alternative methods for modeling of the cure rate in survival
+    studies
+  </strong><br/>
+  <a href="http://www.ufscar.br/~des/docente/vera/vera.htm"><strong>
+    Profa. Dra. Vera Lúcia Damasceno Tomazella
+  </strong></a> (UFSCar)<br/>
+</div>
+
+_In medical studies, it is common that some units under study are not
+susceptible to the event of interest, called immune or cured elements. A
+class of models, referred to as cure rate models, considers these
+situations and has been studied by several authors in the recent
+years. The cure fraction is of interest to patients and a useful measure
+to monitor trends and differences in survival of curable disease. In
+this presentation we discuss some alternative methods for modeling cure
+rate in particular the Defective models. Defective models have the
+advantage of modeling the proportion of cured without adding any extra
+parameters in the model, in contrast to the most models from the
+literature._
