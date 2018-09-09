@@ -14,7 +14,7 @@ da <- data.frame(
              "Resultado da avaliação dos trabalhos para comunicação oral",
              "Incrições para o evento"),
     deadline = c(#"10/09/2018 (Segunda-feira)",
-                 "08/10/2018 (Segunda-feira)",
+                 "15/10/2018 (Segunda-feira)",
                  #"24/09/2018 (Segunda-feira)",
                  "29/10/2018 (Segunda-feira)",
                  "01/11/2018 (Sexta-feira)")
@@ -30,7 +30,36 @@ da %>%
 
 ```
 
+---
 
-### Normas para submissão ###
+## Inscrição e submissão de trabalhos ##
 
-Em breve
+
+As inscrições e submissões de trabalhos são realizadas via formulário
+eletrônico disponível em na página [`inscrições`](incricoes/).
+
+
+A taxa de **inscrição** para o VII Encontro dos Alunos em Estatística e
+Experimentação Agronômica é de **R$20,00**, o que inclui todas as
+atividades do evento (minicurso, conferências, comunicações orais e mesa
+redonda). A inscrição é confirmada com o envio do comprovante de
+pagamento para jreduardo@usp.br. O pagamento pode ser realizado de duas
+maneiras:
+
+1. Em dinheiro, em dinheiro com a secretária Solange de Assis Paes
+   Sabadin (tel. (19) 3429-4127, ramal 231), na sala da Pós-Graduação,
+   3º andar do pavilhão de Engenharia da ESALQ, Avenida Pádua Dias,
+   13418-900, Piracicaba, SP; ou
+
+2. Via depósito/tranferência bancária para Eduardo E. Ribeiro Junior,
+   Agência 5930-7 (Banco do Brasil), Conta: 1.876-7.
+
+
+Na **submissão de trabalhos** para apresentação em formato de
+comunicação oral, com duração de 20min, sendo 17min de apresentação e
+3min de discussão, solicita-se apenas o título e resumo do artigo em
+português e inglês. O escopo do evento é a apresentação de artigos
+originais que explorem, promovam e/ou estendam métodos aplicados da
+Estatística. Todos os títulos e resumos dos trabalhos aceitos serão
+publicados nos anais do evento. Portanto, ao submeter seu trabalho,
+entende-se que todos os autores estão de acordo com sua publicização.

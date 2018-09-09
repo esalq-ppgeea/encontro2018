@@ -4,3 +4,6 @@ type: program
 ---
 
 ## Programação ##
+
+Abaixo é apresentada a programação distribuída no calendário dos dias do
+evento. Para ver a programação em formato longo [clique aqui](programacao2/).
