@@ -30,6 +30,10 @@ a {
   outline: none;
 }
 
+ul, h1, h2, h3, h4, h5, h6 {
+    text-align: left;
+}
+
 blockquote {
     font-style: italic;
     padding: 0px 20px;
@@ -104,6 +108,8 @@ p.caption {
 img {
     vertical-align: middle;
     max-width: 100%;
+    display: block;
+    margin: auto;
 }
 
 code .MathJax {
