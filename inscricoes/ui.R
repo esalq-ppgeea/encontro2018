@@ -7,11 +7,17 @@ library(rmarkdown)
 infoInscricao <-
 "A inscrição para o VIII Encontro dos Alunos em Estatística e
  Experimentação a ser realizado nos dias 21, 22 e 23 de novembro é
- realizada por meio desse
- <a href='https://eduardojr.shinyapps.io/encontro2018/'>formulário</a>), que ficará
- disponível até o dia 01/11. Todavia, sua inscrição só será confirmada
- após pagamento da taxa de inscrição no valor de R$20,00
- (<a href='https://esalq-ppgeea.github.io/encontro2018/datas-importantes'>formas de pagamento</a>)."
+ realizada por meio desse <a target='_blank'
+ href='https://eduardojr.shinyapps.io/encontro2018/'>formulário</a>),
+ que ficará disponível até o dia 01/11. Todavia, sua inscrição só será
+ confirmada após pagamento da taxa de inscrição no valor de R$20,00 que
+ pode ser realizado <b>i)</b> em dinheiro com a secretária Solange de
+ Assis Paes Sabadin, na sala da Pós-Graduação, 3º andar do pavilhão de
+ Engenharia da ESALQ, Avenida Pádua Dias, 13418-900, Piracicaba, SP ou
+ <b>ii)</b> via depósito/transferência para Eduardo E. Ribeiro Junior,
+ Agência 5930-7 (Banco do Brasil), Conta: 1.876-7. O comprovante de
+ pagamento deve ser enviado para <a target='_blank'
+ href='mailto:jreduardo@usp.br'>jreduardo@usp.br</a>."
 
 infoSubmissao <-
 "Estão abertas as submissões para contribuição de artigos a serem
