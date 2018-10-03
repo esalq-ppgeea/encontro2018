@@ -1,2 +1,1 @@
-id	name	institute	cpf	category	course
-#1	Fulano da Silva	ESALQ	123.456.789-09	Aluno de graduação	TRUE
+"id"	"name"	"email"	"institute"	"cpf"	"category"	"course"

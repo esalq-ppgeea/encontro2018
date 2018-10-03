@@ -93,7 +93,7 @@ shinyServer(
                            width = "100%",
                            placeholder = "123.456.789-09")
                        ),
-                column(width = 4,
+                column(width = 3,
                        HTML(text = '<div class="shiny-input-container"
                                style="margin-bottom: 4px">
                              <label class="control-label" for="category">
@@ -105,7 +105,7 @@ shinyServer(
                                         icon = icon("search"),
                                         width = "100%")
                            ),
-                column(width = 4,
+                column(width = 5,
                        HTML(text = '<div class="shiny-input-container"
                                style="margin-bottom: 0px">
                              <label class="control-label" for="category">
@@ -360,7 +360,6 @@ shinyServer(
             if (is.character(vdup)) return(vdup)
             # Append infos to data and re-write the file
             dados <- rbind(dados, infos)
-            dados <- infos
             writing <- try(write.table(
                 dados,
                 file = "./data/inscricoes.csv",
