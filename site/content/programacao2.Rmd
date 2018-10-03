@@ -29,6 +29,81 @@ partir de dados observados ou experimentais._
 ---
 
 <div style='text-align: center; margin-bottom: -10px'>
+  <p><strong>Conferência de abertura</strong>:
+    21/11 (8h30 às 9h30)<br/>
+  <strong style='font-size: 1.2em'>
+    An Extended Random-effects Approach to Modeling Repeated,
+    Overdispersed Count Data
+  </strong><br/>
+  <a href="http://ce.esalq.usp.br/equipe/clarice-garcia-borges-demetrio"><strong>
+    Profa. Dra. Clarice Garcia Borges Demétrio
+  </strong></a> (LEG/UFPR)<br/>
+</div>
+
+_Non-Gaussian outcomes are often modeled using members of the so-called
+exponential family. The Poisson model for count data falls within this
+tradition. The family in general, and the Poisson model in particular,
+are at the same time convenient since mathematically elegant, but in
+need of extension since often somewhat restrictive. Two of the main
+rationales for existing extensions are (1) the occurrence of
+overdispersion (Hinde and Demétrio 1998, Computational Statistics and
+Data Analysis 27, 151-170), in the sense that the variability in the
+data is not adequately captured by the model's prescribed mean-variance
+link, and (2) the accommodation of data hierarchies owing to, for
+example, repeatedly measuring the outcome on the same subject
+(Molenberghs and Verbeke 2005, Models for Discrete Longitudinal Data,
+Springer), recording information from various members of the same
+family, etc. There is a variety of overdispersion models for count data,
+such as, for example, the negative-binomial model. Hierarchies are often
+accommodated through the inclusion of subject-specific, random
+effects. Though not always, one conventionally assumes such random
+effects to be normally distributed. While both of these issues may occur
+simultaneously, models accommodating them at once are less than
+common. This paper proposes a generalized linear model, accommodating
+overdispersion and clustering through two separate sets of random
+effects, of gamma and normal type, respectively (Molenberghs, Verbeke
+and Demétrio 2007, LIDA, 13, 513-531, Molenberghs et al, 2010,
+Statistical Science, 25: 325–347, Vangeneugden et al, 2011, Journal of
+Applied Statistics, 38: 215-232, Molenberghs, Verbeke and Demétrio 2017,
+SORT, 41, 3-54). This is in line with the proposal by Booth, Casella,
+Friedl and Hobert (2003, Statistical Modelling 3, 179-181). The model
+extends both classical overdispersion models for count data (Breslow
+1984, Applied Statistics 33, 38-44), in particular the negative binomial
+model, as well as the generalized linear mixed model (Breslow and
+Clayton 1993, JASA 88, 9-25). Apart from model formulation, we briefly
+discuss several estimation options, and then settle for maximum
+likelihood estimation with both fully analytic integration as well as
+hybrid between analytic and numerical integration. The latter is
+implemented in the SAS procedure NLMIXED. The methodology is applied to
+data from a study in epileptic seizures._
+
+---
+
+<div style='text-align: center; margin-bottom: -10px'>
+<p><strong>Conferência &alpha; </strong>:
+    21/11 (17h15 às 18h15)<br/>
+  <strong style='font-size: 1.2em'>
+    Análise de Dados Poisson Composto Longitudinais Multivariado
+  </strong><br/>
+  <a href="http://www.des.ufscar.br/departamento/docentes-1/afranio-marcio-correa-vieira"><strong>
+    Prof. Dr. Afrânio Marcio Corrêa Vieira
+  </strong></a> (UFSCar)<br/>
+</div>
+
+_Distribuição Poisson Composta é uma distribuição contínua assimétrica,
+com massa de probabilidade positiva em $Y=0$. Registros pluviométricos,
+valores pagos para apólices de seguros, dentre outras situações
+apresentam dados com este comportamento. Apresentaremos um problema em
+que múltiplas expressões bioquímicas de variedades do algodão foram
+mensuradas ao longo do tempo, sob um delineamento experimental
+planejado. Na análise, uma estratégia utilizando modelos lineares
+generalizados misto permite a análise multivariada das expressões
+bioquímicas, levando em consideração a não-normalidade, dependência
+temporal e estrura do delineamento experimental._
+
+---
+
+<div style='text-align: center; margin-bottom: -10px'>
 <p><strong>Conferência de encerramento</strong>:
     23/11 (16h45 às 17h45)<br/>
   <strong style='font-size: 1.2em'>
@@ -51,3 +126,5 @@ rate in particular the Defective models. Defective models have the
 advantage of modeling the proportion of cured without adding any extra
 parameters in the model, in contrast to the most models from the
 literature._
+
+---
