@@ -60,15 +60,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.24748738"
-     inkscape:cx="91.392637"
-     inkscape:cy="691.91026"
+     inkscape:zoom="0.35000001"
+     inkscape:cx="808.15184"
+     inkscape:cy="810.26751"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1366"
-     inkscape:window-height="741"
-     inkscape:window-x="0"
+     inkscape:window-width="1280"
+     inkscape:window-height="960"
+     inkscape:window-x="1366"
      inkscape:window-y="27"
      inkscape:window-maximized="1"
      units="px" />
@@ -80,7 +80,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -187,61 +187,6 @@
        id="rect4502-9"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="ccccc" />
-    <g
-       id="g4582"
-       transform="matrix(0.89195124,0,0,0.89195124,1516.1019,-121.42421)">
-      <text
-         sodipodi:linespacing="100%"
-         id="text4553"
-         y="562.54175"
-         x="-551.74323"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:88.64467621px;line-height:100%;font-family:Impact;-inkscape-font-specification:'Impact Condensed';text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.60568762;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:81.55310059px;font-family:'Gentium Book Basic';-inkscape-font-specification:'Gentium Book Basic';stroke:#ffffff;stroke-width:5.60568762;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           y="562.54175"
-           x="-551.74323"
-           id="tspan4555"
-           sodipodi:role="line">21, 22 e 23</tspan><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:70.91574097px;font-family:'Gentium Book Basic';-inkscape-font-specification:'Gentium Book Basic';text-align:end;text-anchor:end;stroke:#ffffff;stroke-width:5.60568762;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="tspan4557"
-           y="636.06073"
-           x="-551.74323"
-           sodipodi:role="line">de novembro</tspan></text>
-      <text
-         sodipodi:linespacing="100%"
-         id="text4553-7"
-         y="707.47656"
-         x="-537.9964"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:88.64467621px;line-height:100%;font-family:Impact;-inkscape-font-specification:'Impact Condensed';text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-         xml:space="preserve"><tspan
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:70.91574097px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL';text-align:end;text-anchor:end"
-           id="tspan4557-4"
-           y="707.47656"
-           x="-537.9964"
-           sodipodi:role="line">Inscreva-se!</tspan></text>
-    </g>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:49.52888107px;line-height:110.00000238%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Bold';text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-       x="1022.5426"
-       y="664.55121"
-       id="text4604"
-       sodipodi:linespacing="110%"><tspan
-         sodipodi:role="line"
-         id="tspan4606"
-         x="1022.5426"
-         y="664.55121"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:60px;font-family:Gentium;-inkscape-font-specification:Gentium;stroke:#ffffff;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Informações</tspan><tspan
-         sodipodi:role="line"
-         x="1022.5426"
-         y="718.34222"
-         id="tspan4608"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL';stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none">lce.esalq.usp.br/</tspan><tspan
-         sodipodi:role="line"
-         x="1022.5426"
-         y="772.82397"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL';stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none"
-         id="tspan3602">encontro2018</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.7402916px;line-height:0%;font-family:Gentium;-inkscape-font-specification:Gentium;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.00335205px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -341,8 +286,63 @@
       </g>
     </g>
     <g
+       id="g3406"
+       transform="matrix(0.93454368,0,0,0.93454368,-604.71888,24.021177)">
+      <text
+         sodipodi:linespacing="100%"
+         id="text4553"
+         y="380.3356"
+         x="705.76123"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:79.06672668px;line-height:100%;font-family:Impact;-inkscape-font-specification:'Impact Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:5.60568762;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:72.74138641px;font-family:'Gentium Book Basic';-inkscape-font-specification:'Gentium Book Basic';text-align:start;text-anchor:start;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           y="380.3356"
+           x="705.76123"
+           id="tspan4555"
+           sodipodi:role="line">21, 22 e 23</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:63.25338364px;font-family:'Gentium Book Basic';-inkscape-font-specification:'Gentium Book Basic';text-align:start;text-anchor:start;stroke:#ffffff;stroke-width:5;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+           id="tspan4557"
+           y="445.91095"
+           x="705.76123"
+           sodipodi:role="line">de novembro</tspan></text>
+      <text
+         sodipodi:linespacing="100%"
+         id="text4553-7"
+         y="509.61038"
+         x="705.97736"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:condensed;font-size:79.06672668px;line-height:100%;font-family:Impact;-inkscape-font-specification:'Impact Condensed';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:63.25338364px;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL';text-align:start;text-anchor:start"
+           id="tspan4557-4"
+           y="509.61038"
+           x="705.97736"
+           sodipodi:role="line">Inscreva-se!</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:46.28690338px;line-height:110.00000238%;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono, Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="55.812679"
+       y="604.52057"
+       id="text4604"
+       sodipodi:linespacing="110%"><tspan
+         sodipodi:role="line"
+         id="tspan4606"
+         x="55.812679"
+         y="604.52057"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:56.07262039px;font-family:Gentium;-inkscape-font-specification:Gentium;text-align:start;text-anchor:start;stroke:#ffffff;stroke-width:3.73817468;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1">Informações</tspan><tspan
+         sodipodi:role="line"
+         x="55.812679"
+         y="654.79059"
+         id="tspan4608"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL';text-align:start;text-anchor:start;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none">lce.esalq.usp.br/</tspan><tspan
+         sodipodi:role="line"
+         x="55.812679"
+         y="705.70618"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Abyssinica SIL';-inkscape-font-specification:'Abyssinica SIL';text-align:start;text-anchor:start;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none"
+         id="tspan3602">encontro2018</tspan></text>
+    <g
        id="g3549"
-       transform="translate(0,3.4413117e-5)">
+       transform="matrix(1.0082012,0,0,1.0082012,460.52547,-38.742272)">
       <text
          sodipodi:linespacing="130%"
          id="text4589"
@@ -363,19 +363,19 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.7402916px;line-height:94.99999881%;font-family:Gentium;-inkscape-font-specification:Gentium;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.00335205px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            id="tspan3509"
-           style="line-height:94.99999881%;stroke-width:1.00335205px"
+           style="font-size:38.43478775px;line-height:94.99999881%;stroke-width:1.00335205px"
            y="410.27347"
            x="28.833683"
            sodipodi:role="line">Modelos de regressão não linear</tspan><tspan
            id="tspan3513"
-           style="line-height:94.99999881%;stroke-width:1.00335205px"
-           y="442.32675"
+           style="font-size:38.43478775px;line-height:94.99999881%;stroke-width:1.00335205px"
+           y="446.78653"
            x="28.833683"
            sodipodi:role="line">Walmes Zeviani (LEG/UFPR)</tspan></text>
     </g>
     <g
        id="g3542"
-       transform="translate(0,11.72675)">
+       transform="matrix(1.0082012,0,0,1.0082012,460.52547,-12.627144)">
       <text
          sodipodi:linespacing="130%"
          id="text4589-8"
@@ -396,19 +396,39 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.7402916px;line-height:94.99999881%;font-family:Gentium;-inkscape-font-specification:Gentium;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.00335205px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            id="tspan3509-2"
-           style="line-height:94.99999881%;stroke-width:1.00335205px"
+           style="font-size:37.19495773px;line-height:94.99999881%;stroke-width:1.00335205px"
            y="539.67566"
            x="28.833683"
            sodipodi:role="line">Vera Lucia Tomazella (UFSCar) </tspan><tspan
            id="tspan3513-0"
-           style="line-height:94.99999881%;stroke-width:1.00335205px"
-           y="571.72894"
+           style="font-size:37.19495773px;line-height:94.99999881%;stroke-width:1.00335205px"
+           y="575.01086"
            x="28.833683"
-           sodipodi:role="line">Clarice Garcia Demétrio (ESALQ/USP)</tspan></text>
+           sodipodi:role="line">Clarice G. B. Demétrio (ESALQ/USP)</tspan><tspan
+           style="font-size:37.19495773px;line-height:94.99999881%;stroke-width:1.00335205px"
+           y="610.34607"
+           x="28.833683"
+           sodipodi:role="line"
+           id="tspan3415">Afrânio M. C. Vieira (UFSCar)</tspan><tspan
+           style="font-size:37.19495773px;line-height:94.99999881%;stroke-width:1.00335205px"
+           y="645.68127"
+           x="28.833683"
+           sodipodi:role="line"
+           id="tspan3419">Luiza A. Trinca (UNESP/Botucatu)</tspan><tspan
+           style="font-size:33.84741211px;line-height:94.99999881%;stroke-width:1.00335205px"
+           y="681.01648"
+           x="28.833683"
+           sodipodi:role="line"
+           id="tspan3417" /><tspan
+           style="font-size:33.84741211px;line-height:94.99999881%;stroke-width:1.00335205px"
+           y="716.35168"
+           x="28.833683"
+           sodipodi:role="line"
+           id="tspan3413" /></text>
     </g>
     <g
        id="g3542-2"
-       transform="translate(0.46283784,151.82295)">
+       transform="matrix(1.0082012,0,0,1.0082012,460.99211,205.0639)">
       <text
          sodipodi:linespacing="130%"
          id="text4589-8-3"
@@ -429,10 +449,10 @@
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:33.7402916px;line-height:94.99999881%;font-family:Gentium;-inkscape-font-specification:Gentium;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:#ffffff;stroke-width:1.00335205px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
          xml:space="preserve"><tspan
            id="tspan3513-0-2"
-           style="line-height:94.99999881%;stroke-width:1.00335205px"
+           style="font-size:37.19495773px;line-height:94.99999881%;stroke-width:1.00335205px"
            y="539.67566"
            x="28.833683"
-           sodipodi:role="line">Submissões abertas</tspan></text>
+           sodipodi:role="line">Submeta seu trabalho</tspan></text>
     </g>
   </g>
 </svg>
