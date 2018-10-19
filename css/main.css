@@ -612,3 +612,9 @@ form {
     height: 100%;
     border: 0;
 }
+
+#calendar-note {
+    font-size: 12px;
+    color: #000;
+    margin: 0 0 -15px 0;
+}
