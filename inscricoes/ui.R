@@ -60,17 +60,17 @@ shinyUI(fluidPage(
         class = "wait-message"),
     br(),
     htmlOutput("outputInscricao", class = "record-message"),
-    hr(style = "border: 2px solid #eee"),
-
-    #-------------------------------------------
-    # Inscricoes
-    # div(class = "chart-title", h4(strong("Submissão de trabalho"))),
-    h3("Submissão de trabalho"),
-    div(HTML(infoSubmissao), style = "margin-bottom: 20px"),
-    uiOutput("UIsubmissao"),
-    div("Ao clicar, aguarde a mensagem de confirmação.",
-        class = "wait-message"),
-    br(),
-    htmlOutput("outputSubmissao", class = "record-message"),
     hr(style = "border: 2px solid #eee")
+
+    # #-------------------------------------------
+    # # Inscricoes
+    # # div(class = "chart-title", h4(strong("Submissão de trabalho"))),
+    # h3("Submissão de trabalho"),
+    # div(HTML(infoSubmissao), style = "margin-bottom: 20px"),
+    # uiOutput("UIsubmissao"),
+    # div("Ao clicar, aguarde a mensagem de confirmação.",
+    #     class = "wait-message"),
+    # br(),
+    # htmlOutput("outputSubmissao", class = "record-message"),
+    # hr(style = "border: 2px solid #eee")
 ))

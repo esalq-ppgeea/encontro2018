@@ -181,78 +181,78 @@ shinyServer(
 
         #-------------------------------------------
         # Submissao (input infos)
-        output$UIsubmissao <- renderUI({
-            tagList(
-                fluidRow(
-                    column(width = 6,
-                           textInput(
-                               inputId = "speaker",
-                               label = "Apresentador",
-                               value = "",
-                               width = "100%",
-                               placeholder = "Fulano Souza")
-                           ),
-                    column(width = 6,
-                           textInput(
-                               inputId = "cpf2",
-                               label = "CPF",
-                               value = "",
-                               width = "100%",
-                               placeholder = "123.456.789-09")
-                           )
-                ),
-                textInput(
-                    inputId = "authors",
-                    label = "Autores",
-                    value = "",
-                    width = "100%",
-                    placeholder = paste("Fulano Souza",
-                                        "Ciclano Braga",
-                                        "Beltrano Neves",
-                                        sep = "; ")
-                ),
-                textAreaInput(
-                    inputId = "title_pt",
-                    label = "Título (português)",
-                    value = "",
-                    height = "34px",
-                    placeholder = "Até 15 palavras",
-                    resize = "vertical"
-                ),
-                textAreaInput(
-                    inputId = "abstract_pt",
-                    label = "Resumo (português)",
-                    value = "",
-                    height = "204px",
-                    placeholder = "De 80 a 300 palavras",
-                    resize = "vertical"
-                ),
-                textAreaInput(
-                    inputId = "title_en",
-                    label = "Title (English)",
-                    value = "",
-                    height = "34px",
-                    placeholder = "Maximum 15 words",
-                    resize = "vertical"
-                ),
-                textAreaInput(
-                    inputId = "abstract_en",
-                    label = "Abstract (English)",
-                    value = "",
-                    height = "204px",
-                    placeholder = "Limited to 80 to 300 words",
-                    resize = "vertical"
-                ),
-                fluidRow(
-                    column(width = 6, offset = 3,
-                           actionButton(inputId = "submissaoButton",
-                                        label = strong("Submeter"),
-                                        class = "btn btn-primary",
-                                        icon = icon("save"),
-                                        width = "100%")
-                           ))
-            )
-        })
+        # output$UIsubmissao <- renderUI({
+        #     tagList(
+        #         fluidRow(
+        #             column(width = 6,
+        #                    textInput(
+        #                        inputId = "speaker",
+        #                        label = "Apresentador",
+        #                        value = "",
+        #                        width = "100%",
+        #                        placeholder = "Fulano Souza")
+        #                    ),
+        #             column(width = 6,
+        #                    textInput(
+        #                        inputId = "cpf2",
+        #                        label = "CPF",
+        #                        value = "",
+        #                        width = "100%",
+        #                        placeholder = "123.456.789-09")
+        #                    )
+        #         ),
+        #         textInput(
+        #             inputId = "authors",
+        #             label = "Autores",
+        #             value = "",
+        #             width = "100%",
+        #             placeholder = paste("Fulano Souza",
+        #                                 "Ciclano Braga",
+        #                                 "Beltrano Neves",
+        #                                 sep = "; ")
+        #         ),
+        #         textAreaInput(
+        #             inputId = "title_pt",
+        #             label = "Título (português)",
+        #             value = "",
+        #             height = "34px",
+        #             placeholder = "Até 15 palavras",
+        #             resize = "vertical"
+        #         ),
+        #         textAreaInput(
+        #             inputId = "abstract_pt",
+        #             label = "Resumo (português)",
+        #             value = "",
+        #             height = "204px",
+        #             placeholder = "De 80 a 300 palavras",
+        #             resize = "vertical"
+        #         ),
+        #         textAreaInput(
+        #             inputId = "title_en",
+        #             label = "Title (English)",
+        #             value = "",
+        #             height = "34px",
+        #             placeholder = "Maximum 15 words",
+        #             resize = "vertical"
+        #         ),
+        #         textAreaInput(
+        #             inputId = "abstract_en",
+        #             label = "Abstract (English)",
+        #             value = "",
+        #             height = "204px",
+        #             placeholder = "Limited to 80 to 300 words",
+        #             resize = "vertical"
+        #         ),
+        #         fluidRow(
+        #             column(width = 6, offset = 3,
+        #                    actionButton(inputId = "submissaoButton",
+        #                                 label = strong("Submeter"),
+        #                                 class = "btn btn-primary",
+        #                                 icon = icon("save"),
+        #                                 width = "100%")
+        #                    ))
+        #     )
+        # })
 
         #-------------------------------------------
         # Consulta (search database)
@@ -385,113 +385,113 @@ shinyServer(
             return(msg)
         })
 
-        #-------------------------------------------
-        # Grava as informações da submissão
-        dfSubmissao <- eventReactive(input$submissaoButton, {
-            # Read the current data
-            download <- try(drive_download(
-                file = "~/encontro2018/submissoes.csv",
-                path = "./data/submissoes.csv",
-                overwrite = TRUE,
-                verbose = FALSE))
-            if (any(class(download) %in% "try-error")) {
-                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
-            }
-            dados <- try(read.table(
-                file = "./data/submissoes.csv",
-                stringsAsFactors = FALSE,
-                comment.char = "",
-                header = TRUE,
-                sep = "\t"))
-            if (class(dados) == "try-error") {
-                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
-            }
-            download <- try(drive_download(
-                file = "~/encontro2018/inscricoes.csv",
-                path = "./data/inscricoes.csv",
-                overwrite = TRUE,
-                verbose = FALSE))
-            if (any(class(download) %in% "try-error")) {
-                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
-            }
-            inscr <- try(read.table(
-                file = "./data/inscricoes.csv",
-                stringsAsFactors = FALSE,
-                comment.char = "",
-                header = TRUE,
-                sep = "\t"))
-            if (class(inscr) == "try-error") {
-                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
-            }
-            # Verify fields
-            vcam <- verifica_campos(input$speaker,
-                                    input$cpf2,
-                                    input$authors,
-                                    input$title_pt,
-                                    input$title_en,
-                                    input$abstract_pt,
-                                    input$abstract_en)
-            if (is.character(vcam)) return(vcam)
-            # Organize infos
-            infos <- data.frame(
-                "speaker"     = trimws(input$speaker),
-                "cpf"         = organiza_cpf(trimws(input$cpf2)),
-                "authors"     = trimws(input$authors),
-                "title_pt"    = higienize(trimws(input$title_pt)),
-                "title_en"    = higienize(trimws(input$title_en)),
-                "abstract_pt" = higienize(trimws(input$abstract_pt)),
-                "abstract_en" = higienize(trimws(input$abstract_en)))
-            # Verify infos
-            vcpf <- verifica_cpf(infos$cpf)
-            if (is.character(vcpf)) return(vcpf)
-            vrec <- verifica_rec(infos$cpf, inscr$cpf)
-            if (is.character(vrec)) return(vrec)
-            ind_title_pt <- verifica_nwords(infos$title_pt,
-                                            nmax = 15, nmin = 1)
-            if (!ind_title_pt) {
-                return("O título do trabalho (português) não deve ultrapassar 15 palavras.")
-            }
-            ind_title_en <- verifica_nwords(infos$title_en,
-                                            nmax = 15, nmin = 1)
-            if (!ind_title_en) {
-                return("O título do trabalho (inglês) não deve ultrapassar 15 palavras.")
-            }
-            ind_abstract_pt <- verifica_nwords(infos$abstract_pt,
-                                               nmax = 300, nmin = 80)
-            if (!ind_abstract_pt) {
-                return("O resumo do trabalho (português) deve ser entre 80 e 300 palavras.")
-            }
-            ind_abstract_en <- verifica_nwords(infos$abstract_en,
-                                               nmax = 300, nmin = 80)
-            if (!ind_abstract_en) {
-                return("O resumo do trabalho (inglês) deve ser entre 80 e 300 palavras.")
-            }
-            # Append infos to data and re-write the file
-            dados <- rbind(dados, infos)
-            writing <- try(write.table(
-                dados,
-                file = "./data/submissoes.csv",
-                quote = TRUE,
-                row.names = FALSE,
-                sep = "\t"))
-            if (class(writing) == "try-error") {
-                return("Não foi possível gravar os dados. Confira seus dados, se corretos contate Eduardo Jr <jreduardo@usp.br>.")
-            }
-            # Update the remote file
-            update <- try(drive_update(
-                file = "~/encontro2018/submissoes.csv",
-                media = "./data/submissoes.csv",
-                verbose = FALSE))
-            if (any(class(update) %in% "try-error")) {
-                return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
-            }
-            # Success message
-            nam <- strsplit(input$speaker, " ")[[1L]]
-            msg <- sprintf("Parabéns %s, sua proposta de comunicação oral foi submetida!",
-                           paste(nam[c(1, length(nam))],
-                                 collapse = " "))
-            return(msg)
-        })
+        # #-------------------------------------------
+        # # Grava as informações da submissão
+        # dfSubmissao <- eventReactive(input$submissaoButton, {
+        #     # Read the current data
+        #     download <- try(drive_download(
+        #         file = "~/encontro2018/submissoes.csv",
+        #         path = "./data/submissoes.csv",
+        #         overwrite = TRUE,
+        #         verbose = FALSE))
+        #     if (any(class(download) %in% "try-error")) {
+        #         return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+        #     }
+        #     dados <- try(read.table(
+        #         file = "./data/submissoes.csv",
+        #         stringsAsFactors = FALSE,
+        #         comment.char = "",
+        #         header = TRUE,
+        #         sep = "\t"))
+        #     if (class(dados) == "try-error") {
+        #         return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+        #     }
+        #     download <- try(drive_download(
+        #         file = "~/encontro2018/inscricoes.csv",
+        #         path = "./data/inscricoes.csv",
+        #         overwrite = TRUE,
+        #         verbose = FALSE))
+        #     if (any(class(download) %in% "try-error")) {
+        #         return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+        #     }
+        #     inscr <- try(read.table(
+        #         file = "./data/inscricoes.csv",
+        #         stringsAsFactors = FALSE,
+        #         comment.char = "",
+        #         header = TRUE,
+        #         sep = "\t"))
+        #     if (class(inscr) == "try-error") {
+        #         return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+        #     }
+        #     # Verify fields
+        #     vcam <- verifica_campos(input$speaker,
+        #                             input$cpf2,
+        #                             input$authors,
+        #                             input$title_pt,
+        #                             input$title_en,
+        #                             input$abstract_pt,
+        #                             input$abstract_en)
+        #     if (is.character(vcam)) return(vcam)
+        #     # Organize infos
+        #     infos <- data.frame(
+        #         "speaker"     = trimws(input$speaker),
+        #         "cpf"         = organiza_cpf(trimws(input$cpf2)),
+        #         "authors"     = trimws(input$authors),
+        #         "title_pt"    = higienize(trimws(input$title_pt)),
+        #         "title_en"    = higienize(trimws(input$title_en)),
+        #         "abstract_pt" = higienize(trimws(input$abstract_pt)),
+        #         "abstract_en" = higienize(trimws(input$abstract_en)))
+        #     # Verify infos
+        #     vcpf <- verifica_cpf(infos$cpf)
+        #     if (is.character(vcpf)) return(vcpf)
+        #     vrec <- verifica_rec(infos$cpf, inscr$cpf)
+        #     if (is.character(vrec)) return(vrec)
+        #     ind_title_pt <- verifica_nwords(infos$title_pt,
+        #                                     nmax = 15, nmin = 1)
+        #     if (!ind_title_pt) {
+        #         return("O título do trabalho (português) não deve ultrapassar 15 palavras.")
+        #     }
+        #     ind_title_en <- verifica_nwords(infos$title_en,
+        #                                     nmax = 15, nmin = 1)
+        #     if (!ind_title_en) {
+        #         return("O título do trabalho (inglês) não deve ultrapassar 15 palavras.")
+        #     }
+        #     ind_abstract_pt <- verifica_nwords(infos$abstract_pt,
+        #                                        nmax = 300, nmin = 80)
+        #     if (!ind_abstract_pt) {
+        #         return("O resumo do trabalho (português) deve ser entre 80 e 300 palavras.")
+        #     }
+        #     ind_abstract_en <- verifica_nwords(infos$abstract_en,
+        #                                        nmax = 300, nmin = 80)
+        #     if (!ind_abstract_en) {
+        #         return("O resumo do trabalho (inglês) deve ser entre 80 e 300 palavras.")
+        #     }
+        #     # Append infos to data and re-write the file
+        #     dados <- rbind(dados, infos)
+        #     writing <- try(write.table(
+        #         dados,
+        #         file = "./data/submissoes.csv",
+        #         quote = TRUE,
+        #         row.names = FALSE,
+        #         sep = "\t"))
+        #     if (class(writing) == "try-error") {
+        #         return("Não foi possível gravar os dados. Confira seus dados, se corretos contate Eduardo Jr <jreduardo@usp.br>.")
+        #     }
+        #     # Update the remote file
+        #     update <- try(drive_update(
+        #         file = "~/encontro2018/submissoes.csv",
+        #         media = "./data/submissoes.csv",
+        #         verbose = FALSE))
+        #     if (any(class(update) %in% "try-error")) {
+        #         return("Não foi possível conectar-se à base de dados. Tentar mais tarde ou contate Eduardo Jr <jreduardo@usp.br>.")
+        #     }
+        #     # Success message
+        #     nam <- strsplit(input$speaker, " ")[[1L]]
+        #     msg <- sprintf("Parabéns %s, sua proposta de comunicação oral foi submetida!",
+        #                    paste(nam[c(1, length(nam))],
+        #                          collapse = " "))
+        #     return(msg)
+        # })
 
         #-------------------------------------------
         # Imprime mensagem após submeter inscrição
@@ -505,17 +505,18 @@ shinyServer(
             }
         })
 
-        #-------------------------------------------
-        # Imprime mensagem após submeter trabalho
-        output$outputSubmissao <- renderPrint({
-            imessage <- dfSubmissao()
-            if (grepl("Parabéns", imessage)) {
-                cat(sprintf("<span class='sucess'> %s </span>",
-                            imessage), sep = "\n")
-            } else {
-                cat(imessage, sep = "\n")
-            }
-        })
+        # #-------------------------------------------
+        # # Imprime mensagem após submeter trabalho
+        # output$outputSubmissao <- renderPrint({
+        #     imessage <- dfSubmissao()
+        #     if (grepl("Parabéns", imessage)) {
+        #         cat(sprintf("<span class='sucess'> %s </span>",
+        #                     imessage), sep = "\n")
+        #     } else {
+        #         cat(imessage, sep = "\n")
+        #     }
+        # })
+
         #-------------------------------------------
         # Teste
         output$test <- renderPrint({
