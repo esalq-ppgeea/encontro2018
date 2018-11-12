@@ -86,7 +86,7 @@ inscricoes <- read_tsv("inscricoes.csv",
 submissoes <- submissoes %>%
     mutate(referee = c("Thiago", "Renata", "Rafael", "Clarice",
                        "Renata", "Thiago", "Idemauro", "Clarice",
-                       "Idemauro", "Rafael"))
+                       "Idemauro", "Rafael", "Thiago"))
 
 # Build oral communications .tex
 body_communication <- submissoes %>%
