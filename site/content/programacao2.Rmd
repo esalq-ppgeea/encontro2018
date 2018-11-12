@@ -202,3 +202,62 @@ PPG-EEA na ESALQ) com participação da Profa. Dra. Vera Tomazella
 especialização em DSBD na UFPR)._
 
 ---
+
+<div style='text-align: center; margin-bottom: -10px'>
+<p><strong>Comunicações orais I</strong>:
+    21/11 (13h30 às 15h30)<br/>
+</div>
+
+(**13h30-13h50**) <u>Welinton Y. Hirai</u> & Carlos T.S. Dias,\
+Imputação múltipla para matriz de interação genótipo e ambiente;
+
+(**13h50-14h10**) <u>Janaína M. Melo</u>, Idemauro A.R. Lara & Sílvia
+M. Freitas,\
+Seleção de formulações de bebidas prebióticas via Modelos Logitos
+Cumulativos Mistos;
+
+(**14h10-14h30**) <u>Alessandra L. Goes</u> & Renata A. Sermarini,\
+Delineamentos ótimos para experimentos com cana-de-açucar;
+
+(**14h30-14h50**) <u>Wagner Wolff</u>, Aart Overeem & Remko Uijlenhoet,\
+Abordagem geoestatística para mapeamento da chuva a partir de enlaces
+comerciais de microondas;
+
+(**14h50-15h10**) <u>Maria L. Salvador</u> & Idemauro A.R. Lara,\
+Superdispersão em Dados Categorizados Multinomiais: uma Aplica- ção em
+Ciências Agrárias;
+
+(**14h50-15h30**) <u>Maíra B. Fatoretto</u>, Rafael A. Moral & Clarice
+G.B. Demétrio,\
+Seleção de efeitos do tratamento usando o método bootstrap.
+
+---
+
+<div style='text-align: center; margin-bottom: -10px'>
+<p><strong>Comunicações orais II</strong>:
+    22/11 (13h30 às 15h30)<br/>
+</div>
+
+(**13h30-13h50**) <u>Suelen C. Gasparetto</u>, Sônia M.S. Piedade &
+Cristian Villegas,\
+Visualização de dados utilizando ggplot2;
+
+(**13h50-14h10**) <u>Fábio Prataviera</u>, Gauss M. Cordeiro, Edwin
+M.M. Ortega & Altemir S. Braga,\
+A distribuição odd log-logística gama generalizada e modelo de regressão
+associado para dados censurados;
+
+(**14h10-14h30**) <u>Andréia P.M. Hilário</u> & César G. Lima,\
+Ajuste do modelo Gompertz aos dados de crescimento de frangos de corte
+
+(**14h30-14h50**) <u>Eduardo E.R. Junior</u>, Celeste P. D'Alessandro &
+Clarice G.B. Demétrio,\
+Impacto de fungos no controle de lagartas Chrysodeixis includens e
+Helicoverpa amigera
+
+(**14h50-15h10**) <u>Vivian A. Brancaglioni</u>, Carlos T.S. Dias, Marta
+J.A. Coelho & Paulo S. Pavinato,\
+Análise do fracionamento de fósforo em solo de cerrado por meio de
+técnicas multivariadas
+
+---
