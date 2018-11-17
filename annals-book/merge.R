@@ -77,9 +77,9 @@ build_template_tex <- function(authors,
 # Read data, build tex templates and replace into tex
 
 # Read data
-submissoes <- read_tsv("submissoes.csv",
+submissoes <- read_tsv("../data/submissoes.csv",
                        col_types = cols(.default = "c"))
-inscricoes <- read_tsv("inscricoes.csv",
+inscricoes <- read_tsv("../data/inscricoes.csv",
                        col_types = cols(.default = "c"))
 
 # Add referees
