@@ -1,4 +1,4 @@
-annals: template.tex template_co.tex submissoes.csv cover.svg
+annals: template.tex template_co.tex ../data/submissoes.csv cover.svg
 
 	Rscript -e 'source("merge.R")'
 	xelatex annals.tex

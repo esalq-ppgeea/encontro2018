@@ -118,5 +118,9 @@ full_latex <- c(partial_latex[1:line_subm],
 # Write the document
 write_lines(full_latex, "annals.tex")
 
+# # Compile the document
+# system("make")
+# system("make clean")
+
 #-------------------------------------------
 # End
