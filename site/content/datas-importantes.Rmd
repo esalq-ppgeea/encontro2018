@@ -35,9 +35,10 @@ knitr::kable(da, col.names = c("", "Data limite"), escape = FALSE)
 ## Inscrição e submissão de trabalhos ##
 
 
-As inscrições e submissões de trabalhos são realizadas via formulário
-eletrônico disponível em na página [`inscrições`](incricoes/).
-
+**A submissão de trabalhos inscrições online estão
+  encerradas. Interessados que não fizeram a inscrição previamente,
+  podem fazer a inscrição durante recepção do evento (quarta-feira das
+  8:00 às 8:30).**
 
 A taxa de **inscrição** para o VII Encontro dos Alunos em Estatística e
 Experimentação Agronômica é de **R$20,00**, o que inclui todas as

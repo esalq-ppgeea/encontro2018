@@ -15,7 +15,7 @@ Na sua VIII edição, o Encontro dos Alunos passou a ter um sítio
 eletrônico para registro do evento. Nessa edição, o evento conta com uma
 carga horária de 21 horas, distribuídas em palestras, conferências,
 sessões de comunicações orais, mesa redonda e minicurso. Confira nossa
-[programação](programacao) e [**inscreva-se**](inscricoes)!
+[programação](programacao)!
 
 **Comitê organizador:**
 
