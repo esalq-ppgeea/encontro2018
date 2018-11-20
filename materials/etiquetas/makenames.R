@@ -15,11 +15,15 @@ aux_template <- "
 \\usepackage[brazil]{babel}
 \\usepackage[T1]{fontenc}
 \\usepackage{newcent}
+\\usepackage{pagecolor}
+\\pagecolor{white}
 \\geometry{
   paperwidth=8.0cm,
   paperheight=2.8cm,
   margin=0mm
 }
+\\thispagestyle{empty}
+\\pagestyle{empty}
 \\begin{document}
 \\topskip0pt
 \\vspace*{\\fill}
