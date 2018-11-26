@@ -2,6 +2,11 @@
 output: rmarkdown::md_document
 ---
 
+## Caderno de resumos ##
+
+ - Caderno com os resumos de todos as atividades realizadas na
+   programação científica do evento ([`abstractBook.pdf`](../annals.pdf)).
+
 ## Certificados ##
 
  - [Certificados de participação no evento](../certificate_participation.pdf)
