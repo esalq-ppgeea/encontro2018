@@ -42,6 +42,18 @@ Seu nome   Seu e-mail   Mensagem    Enviar    Ou entre em contato por e-mail jre
     
     <item>
       <title></title>
+      <link>/materiais/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/materiais/</guid>
+      <description>Certificados  Certificados de participação no evento Certificados de participação no minicurso Certificados de apresentação de trabalho   Slides das apresentações Minicurso:  Modelos de Regressão Não Linear: teoria e aplicações,
+Prof. Dr. Walmes Marques Zeviani (https://github.com/walmes/mrnl).  Conferências:  An Extended Random-effects Approach to Modeling Repeated, Overdispersed Count Data,
+Profa. Dra. Clarice Garcia Borges Demétrio (slides). Análise de Dados Poisson Composto Longitudinais Multivariado,
+Prof. Dr. Afrânio Marcio Corrêa Vieira (slides).</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>/programacao/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
