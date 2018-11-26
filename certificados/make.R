@@ -48,8 +48,8 @@ text_course <-
 # Text to the oral communications
 text_co <-
 "
-    Certificamos que o trabalho intulado \\textbf{-TITLE-} de autoria de
-    -AUTHORS- foi apresentado em formato de comunicação oral por
+    Certificamos que o trabalho intitulado \\textbf{-TITLE-} de autoria
+    de -AUTHORS- foi apresentado em formato de comunicação oral por
     \\textbf{-SPEAKER-} no VIII Encontro dos Alunos em Estatística e
     Experimentação Agronômica, realizado na Escola Superior de
     Agricultura Luiz de Queiroz, no período de 21 a 23 de novembro de
