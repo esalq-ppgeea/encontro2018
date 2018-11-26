@@ -29,9 +29,12 @@ menu:
     - name: "Materiais"
       url: "/materiais/"
       weight: 4
+    - name: "Fotos"
+      url: "/fotos/"
+      weight: 5
     - name: "Contato"
       url: "/contato/"
-      weight: 5
+      weight: 6
 
 params:
   description: "Personal website"
