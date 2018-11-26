@@ -1,5 +1,5 @@
 ---
-output: rmarkdown::md_documento
+output: rmarkdown::md_document
 ---
 
 <div style='text-align: center; margin-bottom: -10px'>

@@ -1,0 +1,64 @@
+---
+output: rmarkdown::md_document
+---
+
+## Certificados ##
+
+ - [Certificados de participação no evento](../certificate_participation.pdf)
+ - [Certificados de participação no minicurso](../certificate_shortcourse.pdf)
+ - [Certificados de apresentação de trabalho](../certificate_oralcommunications.pdf)
+
+## Slides das apresentações ##
+
+<p style="margin-bottom: -20px"><b>Minicurso:</b></p>
+ - _Modelos de Regressão Não Linear: teoria e aplicações_, \
+ Prof. Dr. Walmes Marques Zeviani
+ ([`https://github.com/walmes/mrnl`](https://github.com/walmes/mrnl)).
+
+<p style="margin-bottom: -20px"><b>Conferências:</b></p>
+
+ - _An Extended Random-effects Approach to Modeling Repeated,
+ Overdispersed Count Data_, \
+ Profa. Dra. Clarice Garcia Borges Demétrio
+ ([`slides`](../slides/d21_PA-Clarice.pdf)).
+ - _Análise de Dados Poisson Composto Longitudinais Multivariado_,\
+ Prof. Dr. Afrânio Marcio Corrêa Vieira
+ ([`slides`](../slides/d21_PA-Afranio.pdf)).
+ - _Planejamento para o ajuste de curvas flexíveis_, \
+ Profa. Dra. Luzia Aparecida Trinca ([`slides`](../slides/d22_PA-Luzia.pdf)).
+ - _Alternative methods for modeling of the cure rate in survival
+ studies_,\
+ Profa. Dra. Vera Lúcia Damasceno Tomazella
+ ([`slides`](../slides/d23_PA-Vera.pdf)).
+
+<p style="margin-bottom: -20px"><b>Comunicações orais:</b></p>
+
+ - Welinton Y. Hirai, _Imputação múltipla para matriz de interação
+   genótipo e ambiente_; ([`slides`](../slides/d21_CO-Welinton.pdf)).
+ - Janaína M. Melo, _Seleção de formulações de bebidas prebióticas via
+   Modelos Logitos Cumulativos Mistos_;
+   ([`slides`](../slides/d21_CO-Janaina.pdf)).
+ - Renata A. Sermarini, _Delineamentos ótimos para experimentos com
+   cana-de-açucar_; ([`slides`](../slides/d21_CO-Renata.pdf))
+ - Wagner Wolff, _Abordagem geoestatística para mapeamento da chuva a
+   partir de enlaces comerciais de microondas_;
+   ([`slides`](../slides/d21_CO-Wagner.pdf)).
+ - Maria L. Salvador, _Superdispersão em Dados Categorizados
+   Multinomiais: uma Aplica- ção em Ciências Agrárias_;
+   ([`slides`](../slides/d21_CO-Maria.pdf)).
+ - Maíra B. Fatoretto, _Seleção de efeitos do tratamento usando o método
+   bootstrap_; ([`slides`](../slides/d21_CO-Maira.pdf))
+ - Suelen C. Gasparetto, _Visualização de dados utilizando ggplot2_;
+   ([`slides`](../slides/d22_CO-Suelen.pdf)).
+ - Fábio Prataviera, _A distribuição odd log-logística gama generalizada
+   e modelo de regressão associado para dados censurados_;
+   ([`slides`](../slides/d22_CO-Fabio.pdf)).
+ - Andréia P.M. Hilário, _Ajuste do modelo Gompertz aos dados de
+   crescimento de frangos de corte_;
+   ([`slides`](../slides/d22_CO-Andreia.pdf)).
+ - Eduardo E.R. Junior, _Impacto de fungos no controle de lagartas
+   Chrysodeixis includens e Helicoverpa amigera_;
+   ([`slides`](../slides/d22_CO-Eduardo.pdf)).
+ - Vivian A. Brancaglioni, _Análise do fracionamento de fósforo em solo
+   de cerrado por meio de técnicas multivariadas_;
+   ([`slides`](../slides/d22_CO-Vivian.pdf)).
