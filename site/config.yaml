@@ -28,7 +28,7 @@ menu:
       weight: 3
     - name: "Materiais"
       url: "/materiais/"
-      weight: 5
+      weight: 4
     - name: "Contato"
       url: "/contato/"
       weight: 5
