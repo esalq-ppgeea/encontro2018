@@ -1,0 +1,60 @@
+\documentclass[12pt, landscape, a4paper]{article}
+
+%-------------------------------------------
+% Margin settings
+\usepackage[left=2cm, right=2cm,
+            top=6.0cm, bottom=3.6cm]{geometry}
+
+%-------------------------------------------
+% To insert the cover page
+\usepackage{tikz}
+
+%-------------------------------------------
+% General packages
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{graphicx}
+
+%-------------------------------------------
+% Hyper references
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  citecolor=black,
+  urlcolor=blue
+}
+
+%-------------------------------------------
+% Customize fonts
+% \usepackage{mathpazo}
+\usepackage{bookman}
+%\usepackage{lmodern}
+
+%=======================================================================
+% Init the document
+%=======================================================================
+\begin{document}
+\setlength\parindent{0pt}
+
+%-----------------------------------------------------------------------
+% Cover page
+%-----------------------------------------------------------------------
+\begin{titlepage}
+  \tikz[remember picture,overlay] \node[opacity=0.9,inner sep=0pt] at
+  (current page.center){
+    \includegraphics[width =\paperwidth,
+                     height=\paperheight]{background}};
+    \color{white}\fontsize{20}{20}\selectfont
+    \vfill
+    %-BODYTEXT-%
+    \vspace*{0.5cm}
+    \begin{flushright}
+      Piracicaba, 23 de novembro de 2018.
+    \end{flushright}
+    \vfill
+\end{titlepage}
+
+\end{document}
