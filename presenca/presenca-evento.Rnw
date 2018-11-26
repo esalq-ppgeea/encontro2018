@@ -1,0 +1,83 @@
+\documentclass[12pt, a4paper]{article}
+
+%-------------------------------------------
+% Margin settings
+\usepackage[margin=1cm]{geometry}
+
+%-------------------------------------------
+% General packages
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{graphicx}
+
+%-------------------------------------------
+% Customize fonts
+\usepackage{bookman}
+\usepackage{lmodern}
+\usepackage{multicol}
+\usepackage{tabularx}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+%-------------------------------------------
+% Tables
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+
+%-------------------------------------------
+\begin{document}
+  \begin{center}
+    \fontfamily{lmdh}\selectfont \Huge VIII Encontro dos Alunos\\
+    \normalfont \Large em Estatística e Experimentação Agronômica
+  \end{center}
+
+  \begin{center}
+  \textbf{Lista de presença 22/11 (quarta-feira)}
+  % \textbf{Lista de presença 22/11 (quarta-feira) tarde}
+  % \textbf{Lista de presença 23/11 (quinta-feira) manhã}
+  % \textbf{Lista de presença 23/11 (quinta-feira) tarde}
+  % \textbf{Lista de presença 24/11 (sexta-feira) manhã}
+  \end{center}
+
+  \rowcolors{2}{gray!15}{white}
+<<table, echo=FALSE, results="asis", warning=FALSE, message=FALSE>>=
+
+library(knitr)
+library(xtable)
+library(readODS)
+library(stringr)
+library(dplyr)
+
+da <- read_ods("../data/pagamentos.ods")
+add.to.row <- list(pos = list(0),
+                   command = paste("\\midrule\n\\endhead\n",
+                                   "\\bottomrule\n\\endfoot"))
+
+da %>%
+    as_tibble() %>%
+    mutate(name = str_to_title(name),
+           ass = NA) %>%
+    select(name, institute, ass)  %>%
+    mutate(assm = ass, asst = ass, ass = NULL) %>%
+    setNames(sprintf("\\textbf{%s}",
+                     c("Nome",
+                       "Insituição",
+                       "Assinatura (Manhã)",
+                       "Assinatura (Tarde)"
+                       ))) %>%
+    xtable(align = c("C{.6cm}L{7cm}L{3.5cm}L{2.8cm}L{2.8cm}")) %>%
+    print.xtable(include.rownames = TRUE,
+                 sanitize.colnames.function = identity,
+                 tabular.environment = "longtable",
+                 hline.after = c(-1, nrow(.)),
+                 add.to.row = add.to.row,
+                 floating = FALSE,
+                 booktabs = TRUE)
+
+@
+
+\end{document}

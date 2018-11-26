@@ -1,0 +1,75 @@
+\documentclass[12pt, a4paper]{article}
+
+%-------------------------------------------
+% Margin settings
+\usepackage[margin=2cm, landscape]{geometry}
+
+%-------------------------------------------
+% General packages
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{graphicx}
+
+%-------------------------------------------
+% Customize fonts
+\usepackage{bookman}
+\usepackage{lmodern}
+\usepackage{multicol}
+
+%-------------------------------------------
+% Tables
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[table]{xcolor}
+
+%-------------------------------------------
+\begin{document}
+  \begin{center}
+    \fontfamily{lmdh}\selectfont \Huge VIII Encontro dos Alunos\\
+    \normalfont \Large em Estatística e Experimentação Agronômica
+  \end{center}
+
+  \begin{center}
+  \textbf{Entrega de crachás}
+  \end{center}
+
+  \rowcolors{2}{gray!15}{white}
+<<table, echo=FALSE, results="asis", message=FALSE>>=
+
+library(knitr)
+library(xtable)
+library(readODS)
+library(stringr)
+library(dplyr)
+
+da <- read_ods("../data/pagamentos.ods")
+add.to.row <- list(pos = list(0),
+                   command = paste("\\midrule\n\\endhead\n",
+                                   "\\bottomrule\n\\endfoot"))
+
+da %>%
+    as_tibble() %>%
+    mutate(name = str_to_title(name),
+           presente = NA) %>%
+    select(-cpf) %>%
+    setNames(sprintf("\\textbf{%s}",
+                     c("Nome",
+                       "E-mail",
+                       "Insituição",
+                       # "CPF",
+                       "Pago",
+                       "Presente"))) %>%
+    xtable() %>%
+    print.xtable(include.rownames = TRUE,
+                 sanitize.colnames.function = identity,
+                 tabular.environment = "longtable",
+                 hline.after = c(-1, nrow(.)),
+                 add.to.row = add.to.row,
+                 floating = FALSE,
+                 booktabs = TRUE)
+
+@
+
+\end{document}
