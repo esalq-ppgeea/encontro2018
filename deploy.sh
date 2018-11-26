@@ -14,7 +14,7 @@ cp -r ../slides/* ./slides/
 
 cp ../annals-book/annals.pdf ./
 
-cp ../certifcados/certificate*.pdf ./
+cp ../certificados/certificate*.pdf ./
 
 git add --all *
 git commit -m "Atualização automática (travis build ${TRAVIS_BUILD_NUMBER})" || true
