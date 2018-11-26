@@ -11,6 +11,7 @@ library(readr)
 library(purrr)
 library(dplyr)
 library(stringr)
+library(readODS)
 library(magrittr)
 
 #-----------------------------------------------------------------------
@@ -79,24 +80,38 @@ build_template_tex <- function(authors,
 # Read data
 submissoes <- read_tsv("../data/submissoes.csv",
                        col_types = cols(.default = "c"))
-inscricoes <- read_tsv("../data/inscricoes.csv",
+inscricoes <- read_ods("../data/presenca.ods",
                        col_types = cols(.default = "c"))
 
+# Filter participants
+inscricoes  <-
+    inscricoes %>%
+    as_tibble() %>%
+    mutate_at(vars(starts_with("d")),
+              funs(case_when(. == "Sim" ~ 1L,
+                             . == "Não" ~ 0L))) %>%
+    filter(d21m | d21t | d22m | d22t | d23m) %>%
+    select(-starts_with("d"))
+
+
 # Add referees
-submissoes <- submissoes %>%
+submissoes <-
+    submissoes %>%
     mutate(referee = c("Thiago", "Renata", "Rafael", "Clarice",
                        "Renata", "Thiago", "Idemauro", "Clarice",
                        "Idemauro", "Rafael", "Thiago"))
 
 # Build oral communications .tex
-body_communication <- submissoes %>%
+body_communication <-
+    submissoes %>%
     # filter(referee == "Thiago") %>%
     pmap(build_template_tex,
          template = read_lines("template_co.tex")) %>%
     flatten_chr()
 
 # Build participants list
-body_participants <- inscricoes %>%
+body_participants <-
+    inscricoes %>%
     select(name, institute) %>%
     arrange(name) %>%
     mutate(name = map_chr(name, name_to_title),
@@ -119,8 +134,8 @@ full_latex <- c(partial_latex[1:line_subm],
 write_lines(full_latex, "annals.tex")
 
 # # Compile the document
-# system("make")
-# system("make clean")
+tinytex::xelatex("annals.tex")
+file.remove("annals.tex")
 
 #-------------------------------------------
 # End
